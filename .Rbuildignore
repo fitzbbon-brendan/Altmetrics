@@ -1,2 +1,7 @@
 ^quarteRsection\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^DEVTESTS.R$
+^mbquartR.Rproj$
+^RELEASE.R$
