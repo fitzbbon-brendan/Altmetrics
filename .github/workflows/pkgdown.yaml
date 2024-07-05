@@ -34,8 +34,23 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::.
+          extra-packages: |
+            any::pkgdown
+            local::.
           needs: website
+
+              - name: Use cache dir
+        id: cache-dir
+        run: |
+          echo "CACHE_DIR=$(Rscript -e 'mbquartR:::cache_dir()' | sed -E 's/.*"(.+)"/\1/')" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Cache data
+        id: cache-data
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.cache-dir.outputs.CACHE_DIR  }}
+          key: mbquartR-data
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
