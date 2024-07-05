@@ -7,3 +7,4 @@
 ^codecov\.yml$
 ^DATA_TO_UPLOAD$
 ^.*\.Rproj$
+^\.github$
