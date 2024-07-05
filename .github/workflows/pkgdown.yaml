@@ -39,7 +39,7 @@ jobs:
             local::.
           needs: website
 
-              - name: Use cache dir
+      - name: Use cache dir
         id: cache-dir
         run: |
           echo "CACHE_DIR=$(Rscript -e 'mbquartR:::cache_dir()' | sed -E 's/.*"(.+)"/\1/')" >> $GITHUB_OUTPUT
