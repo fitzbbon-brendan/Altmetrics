@@ -4,6 +4,7 @@ devtools::build_readme()
 
 # Test coverage
 covr::report()
+covr::codecov(token = "791bac34-df46-4160-9a2c-5728408420b2")
 
 # Update the MB Quarters csv file via piggyback
 # - Download the file by hand if necessary, and store

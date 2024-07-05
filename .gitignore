@@ -5,3 +5,4 @@
 .DS_Store
 .quarto
 DATA_TO_UPLOAD
+RELEASE.R
