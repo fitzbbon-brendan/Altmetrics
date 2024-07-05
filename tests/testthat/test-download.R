@@ -20,12 +20,19 @@ test_that("cache_file()", {
   expect_equal(basename(f), "mb_quarters.csv")
 })
 
+test_that ("cache_check()", {
+  unlink(cache_dir(), recursive = TRUE)
+  expect_false(dir.exists(cache_dir()))
+  expect_error(cache_check(ask = "yes"), "Argument `ask` must be TRUE or FALSE")
+  expect_silent(q <- cache_check(ask = FALSE))
+  expect_true(dir.exists(cache_dir()))
+})
+
 test_that("cache_dl()", {
   skip_if_offline()
   unlink(cache_file())
 
   expect_error(cache_load(), "Data does not exist, please download with `quarters_dl()` first", fixed = TRUE)
-
 
   # Download works
   expect_false(file.exists(cache_file()))
@@ -41,11 +48,6 @@ test_that("cache_dl()", {
     "SECTION,TOWNSHIP,RANGE,LOT NO,MERIDIAN,PARISH NAME,RANGEADD,x,y")
   actual_content <- readLines(cache_file(), n = 1)
   expect_equal(actual_content, expected_content)
-})
-
-test_that ("cache_check()", {
-  expect_silent(q <- cache_check())
-  expect_error(cache_check(ask = "yes"), "Argument `ask` must be TRUE or FALSE")
 })
 
 
