@@ -1,5 +1,5 @@
 Package: mbquartR
-Title: Finding Manitoba Quarter Sections Easier
+Title: Finding Manitoba Quarter Sections
 Version: 0.0.0.9000
 Authors@R: 
     person("Alex", "Koiter", , "koitera@brandonu.ca", role = c("aut", "cre"),

@@ -16,9 +16,12 @@ description (e.g., NE-11-33-29W1) or by lat/long coordinates (e.g.,
 -101.4656, 51.81913). There is also a convenient map function that plots
 the centres of the quarter sections on a map.
 
+For more details checkout the [mbquartR
+website](http://alexkoiter.ca/mbquartR/).
+
 ## Installation
 
-You can install the development version of mbquartR like so:
+You can install the development version of `mbquartR` like so:
 
 ``` r
 # install.packages("devtools")
