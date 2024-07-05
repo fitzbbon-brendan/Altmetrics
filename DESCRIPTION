@@ -25,3 +25,4 @@ Imports:
     readr (>= 2.1.4),
     crayon (>= 1.5.2),
     rlang
+URL: http://alexkoiter.ca/mbquartR/
