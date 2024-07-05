@@ -46,6 +46,23 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
+      - name: Use cache dir
+        id: cache-dir
+        run: |
+          echo "CACHE_DIR=$(Rscript -e 'mbquartR::cache_dir()' | sed -E 's/.*"(.+)"/\1/')" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Cache data
+        id: cache-data
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.cache-dir.outputs.CACHE_DIR  }}
+          key: mbquartR-data
+
+      - name: Download data
+        run: mbquartR::quarters_dl(ask = FALSE, quiet = TRUE)
+        shell: Rscript {0}
+
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
