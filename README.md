@@ -4,6 +4,9 @@
 # mbquartR
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/alex-koiter/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/alex-koiter/mbquartR?branch=main)
 <!-- badges: end -->
 
 The goal of `mbquartR` is to provide an easy way to locate quarter
@@ -39,7 +42,7 @@ as the Southwest Quarter of Section 9, Township 8, Range 6 East of the
 ### Download the data set from Data MB
 
 To use the search functions you must first download a dataset that has
-both the legal land descriptions and the coordinates of the center fro
+both the legal land descriptions and the coordinates of the center for
 each quarter section in Manitoba
 
 ``` r

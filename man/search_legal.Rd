@@ -2,18 +2,43 @@
 % Please edit documentation in R/search_legal.R
 \name{search_legal}
 \alias{search_legal}
-\title{Find the coordinates of a MB quarter section}
+\title{Search for the coordinates of MB quarter sections}
 \usage{
 search_legal(x)
 }
 \arguments{
-\item{x}{Vector of quarter section legal land descriptions}
+\item{x}{Character. Vector of quarter section legal land descriptions you
+wish to search for}
 }
 \value{
-A tibble of latitude and longitude coordinates
+A tibble of legal land descriptions, and corresponding latitude and
+longitude coordinates
 }
 \description{
-Find the coordinates of a MB quarter section
+Find the centre coordinates of quarter sections using the legal land
+description
+}
+\details{
+A legal land description consists of four values separated by a -
+\enumerate{
+\item Quarter Section (SW)
+\item Section (9)
+\item Township (8)
+\item Range (6E1)
+}
+
+For example:
+A legal land description of SW-9-8-6E1 can be interpreted as the Southwest
+Quarter of Section 9, Township 8, Range 6 East of the 1st Meridian.
+
+\code{search_legal()} takes legal land descriptions and locates the centre
+coordinates of the quarter sections. You can include leading zeroes
+(e.g., NE-01-012-12E1) or not (e.g., NE-1-12-12E1). The data set used in
+this package includes three meridians (W1, E1, and E2); however, most
+commonly searched for quarter sections use the East 1 (E1) or West 1 (W1)
+meridians. If the meridian number is not included it will default to 1.
+For example, a search for NW-36-89-11E will by default search for
+NW-36-89-11E1 despite NW-36-89-11E2 existing in the data set.
 }
 \examples{
 search_legal(x = c("NE-11-33-29W", "SW-20-2-1W"))

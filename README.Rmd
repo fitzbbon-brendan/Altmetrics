@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # mbquartR
 
 <!-- badges: start -->
+[![Codecov test coverage](https://codecov.io/gh/alex-koiter/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/alex-koiter/mbquartR?branch=main)
 <!-- badges: end -->
 
 The goal of `mbquartR` is to provide an easy way to locate quarter sections in the province of Manitoba. You can search by legal land description (e.g., NE-11-33-29W1) or by lat/long coordinates (e.g., -101.4656, 51.81913). There is also a convenient map function that plots the centres of the quarter sections on a map.
@@ -44,7 +45,7 @@ A legal land description of SW-9-8-6E1 can be interpreted as the Southwest Quart
 
 ### Download the data set from Data MB
 
-To use the search functions you must first download a dataset that has both the legal land descriptions and the coordinates of the center fro each quarter section in Manitoba
+To use the search functions you must first download a dataset that has both the legal land descriptions and the coordinates of the center for each quarter section in Manitoba
 
 ```{r, eval = FALSE}
 quarters_dl()

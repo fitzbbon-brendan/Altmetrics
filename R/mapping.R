@@ -1,10 +1,19 @@
 
 #' Quickly find MB quarter sections on a map
 #'
+#' Plot the output of `search_legal()` or `search_coord()` or similar
+#' dataframe onto an interactive Leaflet map
+#'
+#' @details Data frame must include the following three column names:
+#'
+#' 1. `legal` - A character that specifies the legal land description (NE-11-33-29W1)
+#' 2. `long` - A numeric specifying the longitude in decimal degrees (-97.6)
+#' 3. `lat` - A numeric specifying the latitude in decimal degrees (49.1)
+#'
 #' @param x Output from `search_legal()` or `search_coord()` or similar dataframe
 #' @param map.type Base map: see <https://leaflet-extras.github.io/leaflet-providers/preview/> for available options
 #'
-#' @return A tibble of latitude and longitude coordinates
+#' @return A Leaflet map
 #' @export
 #'
 #' @examples

@@ -22,10 +22,10 @@ There are four main functions in this package:
 \item \code{\link[=search_coord]{search_coord()}}
 }
 \enumerate{
-\item Search lat and long coordinates for using legal land descriptions
+\item Search for lat and long coordinates using legal land descriptions
 }
 \itemize{
-\item \code{\link[=weather_interp]{weather_interp()}}
+\item \code{\link[=search_legal]{search_legal()}}
 }
 \enumerate{
 \item Plot search results on an interactive map

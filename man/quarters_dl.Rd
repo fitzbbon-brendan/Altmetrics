@@ -4,18 +4,30 @@
 \alias{quarters_dl}
 \title{Download the MB quarter section data}
 \usage{
-quarters_dl(force = FALSE, ask = TRUE)
+quarters_dl(force = FALSE, ask = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{force}{Whether to force a download of the data}
+\item{force}{Logical. If TRUE, forces a re-download of the data. Note this
+data shouldn't require regular (or any) updates.}
 
-\item{ask}{Whether to ask to create the cache folder for MB quarter section data}
+\item{ask}{Logical. If TRUE, asked to create the cache folder for
+MB quarter section data}
+
+\item{quiet}{Logical. If TRUE, suppresses status messages while downloading
+the data}
 }
 \value{
-A .csv file of Manitoba Original Survey Legal Descriptions and coordinates
+Nothing. But has the side effect of downloading a .csv file of
+Manitoba Original Survey Legal Descriptions and coordinates to the cache
+folder (\code{cache_dir()}).
 }
 \description{
-Download the MB quarter section data
+Downloads the full list of quarter sections and coordinates from the
+Manitoba Geoportal. Note that when the Geoportal is unavailable, data is
+downloaded from an archived version from the package repository on Github
+}
+\details{
+This data set should be static.
 }
 \examples{
 \dontrun{

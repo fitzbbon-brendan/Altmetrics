@@ -1,15 +1,22 @@
-#' Find coordinates
+#' Search for the nearest quarter section using latitude and longitude
+#'
+#' Find the quarter section(s) closest to provided coordinates. Returns the
+#' legal land description
 #'
 #' @param long Longitude in decimal degrees
 #' @param lat Latitude in decimal degrees
 #'
-#' @return A data frame
+#' @return A tibble of the latitude and longitude coordinates, corresponding
+#' legal land descriptions, and distance in metres from the provided coordinates
+#' to the centre of the closest quarter section
+#'
 #' @export
 #'
 #' @examples
+#' search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
 #' x <- data.frame(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
 #' search_coord(long = x$long, lat = x$lat)
-#' search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
+
 
 search_coord <- function(long, lat) {
 

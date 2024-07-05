@@ -1,21 +1,31 @@
-# https://services.arcgis.com/mMUesHYPkXjaFGfS/arcgis/rest/services/MB_LegalDesc/FeatureServer/replicafilescache/MB_LegalDesc_-2210306150010260884.csv
-
-# https://geoportal.gov.mb.ca/api/download/v1/items/11fa11f9015b45438d6493dcb3d8071c/csv?layers=0
-#https://geoportal.gov.mb.ca/api/download/v1/items/11fa11f9015b45438d6493dcb3d8071c/shapefile?layers=0
-
 #' Download the MB quarter section data
 #'
-#' @param force Whether to force a download of the data
-#' @param ask Whether to ask to create the cache folder for MB quarter section data
+#' Downloads the full list of quarter sections and coordinates from the
+#' Manitoba Geoportal. Note that when the Geoportal is unavailable, data is
+#' downloaded from an archived version from the package repository on Github
 #'
-#' @return A .csv file of Manitoba Original Survey Legal Descriptions and coordinates
+#' This data set should be static.
+#'
+#' @param force Logical. If TRUE, forces a re-download of the data. Note this
+#' data shouldn't require regular (or any) updates.
+#' @param ask Logical. If TRUE, asked to create the cache folder for
+#' MB quarter section data
+#' @param quiet Logical. If TRUE, suppresses status messages while downloading
+#'  the data
+#'
+#' @return Nothing. But has the side effect of downloading a .csv file of
+#'   Manitoba Original Survey Legal Descriptions and coordinates to the cache
+#'   folder (`cache_dir()`).
+#'
+#' @importFrom utils download.file
+#'
 #' @export
 #'
 #' @examples \dontrun{
 #' quarters_dl()
 #' }
 #'
-quarters_dl <- function(force = FALSE, ask = TRUE) {
+quarters_dl <- function(force = FALSE, ask = TRUE, quiet = FALSE) {
 
   # Checks
   cache_check(ask)
@@ -25,10 +35,10 @@ quarters_dl <- function(force = FALSE, ask = TRUE) {
 
   # Skip if file exists
   if (!force && file.exists(mb_quarters)) {
-    message(crayon::blue("File exists, skipping download. Use `force = TRUE` to force download"))
+    message(crayon::blue("File exists, skipping download. Use `force = TRUE` to force download."))
     return(invisible())
   }
-  cache_dl()
+  cache_dl(quiet = quiet)
 }
 
 #' Check that data cache directory exists, create if not
@@ -54,10 +64,27 @@ cache_check <- function(ask = TRUE) {
 }
 
 
-cache_dl <- function() {
-  download.file <- NULL
-  download.file("https://geoportal.gov.mb.ca/api/download/v1/items/11fa11f9015b45438d6493dcb3d8071c/csv?layers=0",
-                destfile = file.path(cache_dir(),"mb_quarters.csv"))
+cache_dl <- function(quiet = FALSE) {
+
+  # Get the Geoportal URL
+  url <- getOption("mbquartR_dl_url")
+  if(is.null(url)) {
+    url <- file.path("https://geoportal.gov.mb.ca/api/download/v1/items/",
+                     "11fa11f9015b45438d6493dcb3d8071c/csv?layers=0")
+  }
+
+  if(!url_ok(url)) {
+    url <- getOption("mbquartR_dl_url_backup")
+    if(is.null(url)) {
+      url <- file.path("https://github.com/alex-koiter/mbquartR/releases/",
+                       "download/data-backup/mb_quarters.csv")
+    }
+    message("Data from geoportal.gov.mb.ca is not currently available, using backup data source.\n",
+            "See ?quarters_dl for more details.")
+  }
+
+  download.file(url, destfile = file.path(cache_dir(),"mb_quarters.csv"),
+                quiet = quiet)
   if(file.exists(cache_file())) {
     message(crayon::blue("You have downloaded the data to", cache_file()))
   } else {
@@ -65,6 +92,10 @@ cache_dl <- function() {
   }
 }
 
+url_ok <- function(url) {
+  h <- curlGetHeaders(url, timeout = 20)
+  attr(h, "status") == 200
+}
 
 cache_file <- function(check = FALSE) {
   file.path(cache_dir(), "mb_quarters.csv")
@@ -81,6 +112,6 @@ cache_load <- function() {
   if(file.exists(f))
     readr::read_csv(f, guess_max = 20000, show_col_types = FALSE, progress = FALSE)
   else
-  stop(message(crayon::blue("Data doesn't exist, please download with `quarters_dl()` first")))
+  stop("Data does not exist, please download with `quarters_dl()` first")
 }
 

@@ -12,10 +12,19 @@ map_quarter(x, map.type = "Esri.WorldImagery")
 \item{map.type}{Base map: see \url{https://leaflet-extras.github.io/leaflet-providers/preview/} for available options}
 }
 \value{
-A tibble of latitude and longitude coordinates
+A Leaflet map
 }
 \description{
-Quickly find MB quarter sections on a map
+Plot the output of \code{search_legal()} or \code{search_coord()} or similar
+dataframe onto an interactive Leaflet map
+}
+\details{
+Data frame must include the following three column names:
+\enumerate{
+\item \code{legal} - A character that specifies the legal land description (NE-11-33-29W1)
+\item \code{long} - A numeric specifying the longitude in decimal degrees (-97.6)
+\item \code{lat} - A numeric specifying the latitude in decimal degrees (49.1)
+}
 }
 \examples{
 search1 <- search_legal(x = c("NE-11-33-29W1", "SW-20-2-1W1"))

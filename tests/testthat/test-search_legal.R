@@ -15,6 +15,7 @@ test_that ("Messages, warnings, and errors show up", {
   expect_warning(search_legal(x = c("NE-11-33-29W", "SW-20-2-1x")), "One or more of the legal land descriptions could not be found. Please check your data.")
   expect_warning(search_legal(x = "NE-2-12-12E"), "One or more of the legal land descriptions has an ambiguous meridian value E and is assumed to be east of prime meridian \\(E1\\). \nTo stop messages please specify meridians as E1 or E2 \\(e.g., NW-36-89-11E1\\).")
   expect_error(search_legal(x = 5), "Legal land descriptions must be text.")
+  expect_error(search_legal(x = "WW-11-33-29W"), "No matches found for the legal land descriptions provided")
 })
 
 

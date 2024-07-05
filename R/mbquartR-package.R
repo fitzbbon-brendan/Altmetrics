@@ -11,14 +11,14 @@
 #'  2. Search for legal land descriptions using lat and long coordinates
 #'    - [`search_coord()`]
 #'
-#'  3. Search lat and long coordinates for using legal land descriptions
-#'    - [`weather_interp()`]
+#'  3. Search for lat and long coordinates using legal land descriptions
+#'    - [`search_legal()`]
 #'
 #'  4. Plot search results on an interactive map
 #'    - [`map_quarter()`]
 #'
 
-#' @docType package
+"_PACKAGE"
 #' @name mbquartR-package
 #' @aliases mbquartR mbquartR-package
 #' @importFrom rlang .data

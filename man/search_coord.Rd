@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_coord.R
 \name{search_coord}
 \alias{search_coord}
-\title{Find coordinates}
+\title{Search for the nearest quarter section using latitude and longitude}
 \usage{
 search_coord(long, lat)
 }
@@ -12,13 +12,16 @@ search_coord(long, lat)
 \item{lat}{Latitude in decimal degrees}
 }
 \value{
-A data frame
+A tibble of the latitude and longitude coordinates, corresponding
+legal land descriptions, and distance in metres from the provided coordinates
+to the centre of the closest quarter section
 }
 \description{
-Find coordinates
+Find the quarter section(s) closest to provided coordinates. Returns the
+legal land description
 }
 \examples{
+search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
 x <- data.frame(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
 search_coord(long = x$long, lat = x$lat)
-search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
 }
