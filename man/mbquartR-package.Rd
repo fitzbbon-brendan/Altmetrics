@@ -6,8 +6,10 @@
 \alias{mbquartR}
 \title{Finding Manitoba, Canada, quarter sections made easier}
 \description{
-\code{mbquartR} is an R package for locating quarter sections in Manitoba using lat/long coordinates
-or the legal land descriptions using the  Manitoba Original Survey Legal Descriptions data set from the Data MB website (\url{https://geoportal.gov.mb.ca/})
+\code{mbquartR} is an R package for locating quarter sections in Manitoba
+using lat/long coordinates or the legal land descriptions using the
+Manitoba Original Survey Legal Descriptions data set from the Data MB website
+(\url{https://geoportal.gov.mb.ca/})
 There are four main functions in this package:
 }
 \details{
@@ -33,6 +35,15 @@ There are four main functions in this package:
 \itemize{
 \item \code{\link[=map_quarter]{map_quarter()}}
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://alexkoiter.ca/mbquartR/}
+  \item \url{https://github.com/alex-koiter/mbquartR}
+  \item Report bugs at \url{https://github.com/alex-koiter/mbquartR/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Alex Koiter \email{koitera@brandonu.ca} (\href{https://orcid.org/0000-0002-9355-9561}{ORCID})

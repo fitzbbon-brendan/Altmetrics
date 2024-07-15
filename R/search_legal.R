@@ -36,33 +36,43 @@
 search_legal <- function(x) {
 
   if(!is.character(x)) stop("Legal land descriptions must be text.")
-  if(any(stringr::str_detect(x, "E$"))) warning("One or more of the legal land descriptions has an ambiguous meridian value E and is assumed to be east of prime meridian (E1). \nTo stop messages please specify meridians as E1 or E2 (e.g., NW-36-89-11E1).")
+  if(any(stringr::str_detect(x, "E$")))
+    warning("One or more of the legal land descriptions has an ambiguous",
+            "meridian value E and is assumed to be east of prime meridian (E1).",
+            "\nTo stop messages please specify meridians as E1 or E2",
+            "(e.g., NW-36-89-11E1).")
 
   if(!file.exists(cache_file())){
-    message(crayon::blue("Data doesn't exist, please download with `quarters_dl()` first"))
+    message(crayon::blue("Data doesn't exist, please download with",
+                         "`quarters_dl()` first"))
     return(invisible())
   }
   else {
     search <- x |>
       stringr::str_replace_all("\\b0+","") |> ## Remove leading zeros
       stringr::str_replace("E$", "E1") |> ## Assumes E is E1 and not E2
-      stringr::str_replace("W$", "W1") ## There is only one western meridian in MB W1
+      stringr::str_replace("W$", "W1") ## Only one western meridian in MB W1
 
     df_legal <- cache_load() |>
       dplyr::filter(.data[["Informal Legal Description"]] %in% search)
 
-    if(nrow(df_legal) == 0) stop("No matches found for the legal land descriptions provided")
+    if(nrow(df_legal) == 0)
+      stop("No matches found for the legal land descriptions provided")
 
     df_legal <- df_legal |>
       sf::st_as_sf(coords = c("x", "y"), crs = "EPSG:3857") |>
       sf::st_transform(crs = "+proj=longlat +datum=WGS84") |>
-      dplyr::mutate(coords = as.data.frame(sf::st_coordinates(.data[["geometry"]]))) |>
+      dplyr::mutate(coords = as.data.frame(
+        sf::st_coordinates(.data[["geometry"]]))) |>
       tidyr::unnest("coords") |>
       sf::st_drop_geometry() |>
-      dplyr::select(legal = "Informal Legal Description", long = "X", lat = "Y") |>
+      dplyr::select(legal = "Informal Legal Description",
+                    long = "X", lat = "Y") |>
       tibble::tibble()
 
-    if(length(x) > length(df_legal$legal)) warning("One or more of the legal land descriptions could not be found. Please check your data.")
+    if(length(x) > length(df_legal$legal))
+      warning("One or more of the legal land descriptions could not be found.",
+              "Please check your data.")
     df_legal
   }
 }

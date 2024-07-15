@@ -13,8 +13,8 @@ search_coord(long, lat)
 }
 \value{
 A tibble of the latitude and longitude coordinates, corresponding
-legal land descriptions, and distance in metres from the provided coordinates
-to the centre of the closest quarter section
+legal land descriptions, and distance in metres from the provided
+coordinates to the centre of the closest quarter section
 }
 \description{
 Find the quarter section(s) closest to provided coordinates. Returns the
@@ -22,6 +22,6 @@ legal land description
 }
 \examples{
 search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
-x <- data.frame(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
+x <- data.frame(long = c(-101.4656, -99.9976), lat = c(51.81913, 49.92892))
 search_coord(long = x$long, lat = x$lat)
 }

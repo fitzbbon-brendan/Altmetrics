@@ -35,7 +35,8 @@ quarters_dl <- function(force = FALSE, ask = TRUE, quiet = FALSE) {
 
   # Skip if file exists
   if (!force && file.exists(mb_quarters)) {
-    message(crayon::blue("File exists, skipping download. Use `force = TRUE` to force download."))
+    message(crayon::blue("File exists, skipping download. Use `force = TRUE`",
+                         "to force download."))
     return(invisible())
   }
   cache_dl(quiet = quiet)
@@ -55,8 +56,9 @@ cache_check <- function(ask = TRUE) {
 
   if(ask && !dir.exists(d)) {
     question_dl <- utils::menu(choices = c("Yes", "No"),
-      title = paste0("Would you like to create the cache folder for MB quarter section data at\n",
-             d))
+                               title = paste0("Would you like to create the ",
+                                              "cache folder for MB quarter ",
+                                              "section data at\n", d))
     if (question_dl == 2) stop("Cannot create cache folder without permission")
   }
 
@@ -79,8 +81,8 @@ cache_dl <- function(quiet = FALSE) {
       url <- file.path("https://github.com/alex-koiter/mbquartR/releases/",
                        "download/data-backup/mb_quarters.csv")
     }
-    message("Data from geoportal.gov.mb.ca is not currently available, using backup data source.\n",
-            "See ?quarters_dl for more details.")
+    message("Data from geoportal.gov.mb.ca is not currently available, using",
+            "backup data source.\n", "See ?quarters_dl for more details.")
   }
 
   download.file(url, destfile = file.path(cache_dir(),"mb_quarters.csv"),
@@ -110,8 +112,9 @@ cache_dir <- function() {
 cache_load <- function() {
   f <- cache_file()
   if(file.exists(f))
-    readr::read_csv(f, guess_max = 20000, show_col_types = FALSE, progress = FALSE)
+    readr::read_csv(f, guess_max = 20000, show_col_types = FALSE,
+                    progress = FALSE)
   else
-  stop("Data does not exist, please download with `quarters_dl()` first")
+    stop("Data does not exist, please download with `quarters_dl()` first")
 }
 

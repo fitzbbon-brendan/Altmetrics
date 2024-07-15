@@ -6,6 +6,8 @@ Authors@R:
            comment = c(ORCID = "0000-0002-9355-9561"))
 Description: This package has three main functions: 1) find the coordinates of a quarter sections given the legal land description (e.g., "NE-11-33-29W"); 2) find the legal land description using coordinates (lat and long); and 3) plot these points on a map. 
 License: MIT + file LICENSE
+URL: http://alexkoiter.ca/mbquartR/, https://github.com/alex-koiter/mbquartR
+BugReports: https://github.com/alex-koiter/mbquartR/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
@@ -25,4 +27,3 @@ Imports:
     readr (>= 2.1.4),
     crayon (>= 1.5.2),
     rlang
-URL: http://alexkoiter.ca/mbquartR/

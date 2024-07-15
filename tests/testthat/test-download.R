@@ -32,7 +32,8 @@ test_that("cache_dl()", {
   skip_if_offline()
   unlink(cache_file())
 
-  expect_error(cache_load(), "Data does not exist, please download with `quarters_dl()` first", fixed = TRUE)
+  expect_error(cache_load(), "Data does not exist, please download with",
+               fixed = TRUE)
 
   # Download works
   expect_false(file.exists(cache_file()))

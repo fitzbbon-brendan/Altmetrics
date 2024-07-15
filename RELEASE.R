@@ -5,6 +5,12 @@ devtools::build_readme()
 # Test coverage
 covr::report()
 
+# Package check
+check <- pkgcheck::pkgcheck(".")
+
+summary(check)
+print(check)
+
 
 # Update the MB Quarters csv file via piggyback
 # - Download the file by hand if necessary, and store

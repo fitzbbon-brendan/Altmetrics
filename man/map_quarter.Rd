@@ -7,9 +7,12 @@
 map_quarter(x, map.type = "Esri.WorldImagery")
 }
 \arguments{
-\item{x}{Output from \code{search_legal()} or \code{search_coord()} or similar dataframe}
+\item{x}{Output from \code{search_legal()} or \code{search_coord()} or similar
+dataframe}
 
-\item{map.type}{Base map: see \url{https://leaflet-extras.github.io/leaflet-providers/preview/} for available options}
+\item{map.type}{Base map: see
+\url{https://leaflet-extras.github.io/leaflet-providers/preview/} for available
+options}
 }
 \value{
 A Leaflet map
@@ -21,7 +24,8 @@ dataframe onto an interactive Leaflet map
 \details{
 Data frame must include the following three column names:
 \enumerate{
-\item \code{legal} - A character that specifies the legal land description (NE-11-33-29W1)
+\item \code{legal} - A character that specifies the legal land description
+(NE-11-33-29W1)
 \item \code{long} - A numeric specifying the longitude in decimal degrees (-97.6)
 \item \code{lat} - A numeric specifying the latitude in decimal degrees (49.1)
 }
@@ -29,6 +33,7 @@ Data frame must include the following three column names:
 \examples{
 search1 <- search_legal(x = c("NE-11-33-29W1", "SW-20-2-1W1"))
 map_quarter(x = search1)
-search2 <- search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
+search2 <- search_coord(long = c(-101.4656, -99.99768),
+lat = c(51.81913, 49.928926))
 map_quarter(x = search2)
 }
