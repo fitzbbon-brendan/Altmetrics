@@ -56,7 +56,8 @@ test_that ("quarters_dl() - Messages, warnings, and errors show up", {
   unlink(cache_dir(), recursive = TRUE)
 
   expect_error(quarters_dl(ask = "yes"), "Argument `ask` must be TRUE or FALSE")
-  expect_message(quarters_dl(ask = FALSE, quiet = TRUE), "You have downloaded") |>
+  expect_message(quarters_dl(ask = FALSE, quiet = TRUE),
+                 "You have downloaded") |>
     suppressMessages()
   expect_message(quarters_dl(), "File exists, skipping download")
 })

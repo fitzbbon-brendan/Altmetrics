@@ -37,10 +37,11 @@ search_legal <- function(x) {
 
   if(!is.character(x)) stop("Legal land descriptions must be text.")
   if(any(stringr::str_detect(x, "E$")))
-    warning("One or more of the legal land descriptions has an ambiguous",
-            "meridian value E and is assumed to be east of prime meridian (E1).",
-            "\nTo stop messages please specify meridians as E1 or E2",
-            "(e.g., NW-36-89-11E1).")
+    warning(
+      "One or more of the legal land descriptions has an ambiguous",
+      "meridian value E and is assumed to be east of prime meridian (E1).",
+      "\nTo stop messages please specify meridians as E1 or E2",
+      "(e.g., NW-36-89-11E1).")
 
   if(!file.exists(cache_file())){
     message(crayon::blue("Data doesn't exist, please download with",
