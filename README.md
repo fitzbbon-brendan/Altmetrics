@@ -100,9 +100,11 @@ search_legal(x = c("NE-11-33-29W1", "SW-20-02-1W1"))
 #> 2 SW-20-2-1W1    -97.6  49.1
 ```
 
-You can also quickly plot them on an interactive map
+### Map legal land descriptions
+
+You can also quickly plot located quarter sections on an interactive map
 
 ``` r
 example <- search_legal(x = c("NE-1-12-12E1", "NE-11-33-29W1"))
-#map_quarter(example)
+map_quarter(example)
 ```

@@ -1,16 +1,21 @@
 ---
-output: github_document
+title: "mbquartR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mbquartR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
+```
+
+```{r setup}
+library(mbquartR)
 ```
 
 # mbquartR
@@ -61,7 +66,6 @@ These are basic examples which shows you the two common ways to search for quart
 This function takes your coordinates and locates the nearest centre of a quarter section based on the euclidean distance between two points. Given that most quarter sections are a half mile square (804.7m by 804.7m) the furthest distance from the center to corner is ~570m. You will get a warning if any distances are greater than 600m and an error is the distance is greater than 1000m. The tibble that is returned provides the legal land descriptions, centre coordinates, and the distance from the coordinates provided to the closest quarter section centre. 
 
 ```{r example}
-library(mbquartR)
 
 search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
 ```
