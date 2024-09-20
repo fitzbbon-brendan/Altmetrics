@@ -8,6 +8,7 @@
 [![Codecov test
 coverage](https://codecov.io/gh/alex-koiter/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/alex-koiter/mbquartR?branch=main)
 [![R-CMD-check](https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml)
+[![pkgcheck](https://github.com/%3Calex-koiter%3E/%3CmbquartR%3E/workflows/pkgcheck/badge.svg)](https://github.com/%3Calex-koiter%3E/%3CmbquartR%3E/actions?query=workflow%3Apkgcheck)
 <!-- badges: end -->
 
 The goal of `mbquartR` is to provide an easy way to locate quarter
