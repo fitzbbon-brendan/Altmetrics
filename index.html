@@ -61,65 +61,6 @@
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"alex-koiter/mbquartR"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="how-do-legal-land-descriptions-work-in-manitoba">How do legal land descriptions work in Manitoba?<a class="anchor" aria-label="anchor" href="#how-do-legal-land-descriptions-work-in-manitoba"></a>
-</h2>
-<p>A legal land description consists of four values separated by a -</p>
-<ol style="list-style-type: decimal">
-<li>Quarter Section (SW)</li>
-<li>Section (9)</li>
-<li>Township (8)</li>
-<li>Range (6E1)</li>
-</ol>
-<p>For example: A legal land description of SW-9-8-6E1 can be interpreted as the Southwest Quarter of Section 9, Township 8, Range 6 East of the 1st Meridian.</p>
-</div>
-<div class="section level2">
-<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
-</h2>
-<div class="section level3">
-<h3 id="download-the-data-set-from-data-mb">Download the data set from Data MB<a class="anchor" aria-label="anchor" href="#download-the-data-set-from-data-mb"></a>
-</h3>
-<p>To use the search functions you must first download a dataset that has both the legal land descriptions and the coordinates of the center for each quarter section in Manitoba</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/quarters_dl.html">quarters_dl</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>These are basic examples which shows you the two common ways to search for quarter sections:</p>
-</div>
-<div class="section level3">
-<h3 id="search-using-latlong-coordinates">Search using lat/long coordinates<a class="anchor" aria-label="anchor" href="#search-using-latlong-coordinates"></a>
-</h3>
-<p>This function takes your coordinates and locates the nearest centre of a quarter section based on the euclidean distance between two points. Given that most quarter sections are a half mile square (804.7m by 804.7m) the furthest distance from the center to corner is ~570m. You will get a warning if any distances are greater than 600m and an error is the distance is greater than 1000m. The tibble that is returned provides the legal land descriptions, centre coordinates, and the distance from the coordinates provided to the closest quarter section centre.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://alexkoiter.ca/mbquartR/">mbquartR</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/search_coord.html">search_coord</a></span><span class="op">(</span>long <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">101.4656</span>, <span class="op">-</span><span class="fl">99.99768</span><span class="op">)</span>, lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">51.81913</span>, <span class="fl">49.928926</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 2 × 4</span></span>
-<span><span class="co">#&gt;   legal          long   lat  dist</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;   [m]</span></span>
-<span><span class="co">#&gt; 1 NE-11-33-29W1 -101.  51.8  48.4</span></span>
-<span><span class="co">#&gt; 2 NW-15-11-19W1 -100.  49.9 329.</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="search-using-legal-land-descriptions">Search using legal land descriptions<a class="anchor" aria-label="anchor" href="#search-using-legal-land-descriptions"></a>
-</h3>
-<p>This function takes legal land descriptions and locates the centre coordinates of the quarter sections. You can include leading zeroes (e.g., NE-01-012-12E1) or not (e.g., NE-1-12-12E1). The data set used in this package includes three meridians (W1, E1, and E2); however, most commonly searched for quarter sections use the East 1 (E1) or West 1 (W1) meridians. If the meridian number is not included it will default to 1. For example, a search for NW-36-89-11E will by default search for NW-36-89-11E1 despite NW-36-89-11E2 existing in the data set.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="reference/search_legal.html">search_legal</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NE-11-33-29W1"</span>, <span class="st">"SW-20-02-1W1"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span><span class="co">#&gt;   legal           long   lat</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 NE-11-33-29W1 -101.   51.8</span></span>
-<span><span class="co">#&gt; 2 SW-20-2-1W1    -97.6  49.1</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="map-legal-land-descriptions">Map legal land descriptions<a class="anchor" aria-label="anchor" href="#map-legal-land-descriptions"></a>
-</h3>
-<p>You can also quickly plot located quarter sections on an interactive map</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/search_legal.html">search_legal</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NE-1-12-12E1"</span>, <span class="st">"NE-11-33-29W1"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/map_quarter.html">map_quarter</a></span><span class="op">(</span><span class="va">example</span><span class="op">)</span></span></code></pre></div>
-</div>
-</div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
