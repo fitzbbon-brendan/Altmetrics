@@ -26,3 +26,8 @@ print(check)
 
 # https://geoportal.gov.mb.ca/api/download/v1/items/11fa11f9015b45438d6493dcb3d8071c/csv?layers=0
 #https://geoportal.gov.mb.ca/api/download/v1/items/11fa11f9015b45438d6493dcb3d8071c/shapefile?layers=0
+
+
+# pkgdown checks - BUILD PACKAGE FIRST!
+pkgdown::build_article("mbquartR")
+

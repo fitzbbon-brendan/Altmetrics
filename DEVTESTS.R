@@ -1,6 +1,6 @@
 
 
-test <- search_coord(long = c(-101.4656), lat = c(51.81913))
+test <- search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))
 
 map_quarter(test)
 

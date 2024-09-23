@@ -35,7 +35,7 @@ map_quarter <- function(x, map.type = "Esri.WorldImagery") {
 
   if(nrow(x) > nrow(Centre))
   warning("One or more of the legal land descriptions could not be found.",
-          "Please check your data.")
+          " Please check your data.")
 
   mapview::mapview(Centre, map.type = map.type, homebutton = FALSE)
 }

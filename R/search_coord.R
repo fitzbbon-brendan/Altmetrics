@@ -30,6 +30,7 @@ search_coord <- function(long, lat) {
     stop("Data doesn't exist, please download with `quarters_dl()` first")
   }
   else {
+    master_data <- cache_load()
     search_df <- tibble::tibble(long = long, lat = lat) |>
       sf::st_as_sf(coords = c("long", "lat"),
                    crs = "+proj=longlat +datum=WGS84") |>
@@ -39,8 +40,9 @@ search_coord <- function(long, lat) {
       tidyr::unnest("coords") |>
       sf::st_drop_geometry() |>
       tibble::rowid_to_column("point") |>
-      dplyr::mutate(dist = purrr::map2(.data[["X"]],
-                                       .data[["Y"]], closest_centoid)) |>
+      dplyr::mutate(dist = purrr::map2(
+        .data[["X"]], .data[["Y"]],
+        \(x, y) closest_centroid(master_data, x, y))) |>
       tidyr::unnest("dist") |>
       dplyr::mutate(dist = units::set_units(.data[["dist"]], "m")) |>
       dplyr::select("point", legal = "Informal Legal Description", "dist") |>
@@ -51,19 +53,19 @@ search_coord <- function(long, lat) {
 
     if(max(as.numeric(search_df$dist)) >= 1000)
       stop("One or more coordinates greater than 1000m from nearest quarter",
-           "section center. Please check your data.")
+           " section center. Please check your data.")
 
     if(max(as.numeric(search_df$dist)) > 600 && max(as.numeric(search_df$dist))
        < 1000)
        warning("One or more coordinates greater than 600m from nearest quarter",
-               "section center. Please check your data.")
+               " section center. Please check your data.")
     search_df
   }
 }
 
 
-closest_centoid <- function(X, Y) {
-  cache_load() |>
+closest_centroid <- function(master_data, X, Y) {
+  master_data |>
     dplyr::bind_cols(X = X, Y = Y) |>
     dplyr::mutate(dist = ((X - .data[["x"]])^2 + (.data[["y"]] - Y) ^2)^0.5) |>
     dplyr::filter(.data[["dist"]] == min(.data[["dist"]])) |>

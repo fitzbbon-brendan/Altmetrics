@@ -12,3 +12,4 @@
 ^docs$
 ^pkgdown$
 ^codemeta\.json$
+^data-raw$
