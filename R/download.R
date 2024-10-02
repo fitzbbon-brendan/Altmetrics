@@ -2,7 +2,7 @@
 #'
 #' Downloads the full list of quarter sections and coordinates from the
 #' Manitoba Geoportal. Note that when the Geoportal is unavailable, data is
-#' downloaded from an archived version from the package repository on Github
+#' downloaded from an archived version from the package repository on Github.
 #'
 #' This data set should be static.
 #'
@@ -16,8 +16,6 @@
 #' @return Nothing. But has the side effect of downloading a .csv file of
 #'   Manitoba Original Survey Legal Descriptions and coordinates to the cache
 #'   folder (`cache_dir()`).
-#'
-#' @importFrom utils download.file
 #'
 #' @export
 #'
@@ -66,6 +64,16 @@ cache_check <- function(ask = TRUE) {
 }
 
 
+#' Check whether data file exists
+#'
+#' @noRd
+cache_file_check <- function() {
+  if(!file.exists(cache_file())){
+    stop("Data does not exist, please download with `quarters_dl()` first",
+         call. = FALSE)
+  }
+}
+
 cache_dl <- function(quiet = FALSE) {
 
   # Get the Geoportal URL
@@ -85,8 +93,8 @@ cache_dl <- function(quiet = FALSE) {
             " backup data source.\n", "See ?quarters_dl for more details.")
   }
 
-  download.file(url, destfile = file.path(cache_dir(),"mb_quarters.csv"),
-                quiet = quiet)
+  utils::download.file(url, destfile = file.path(cache_dir(),"mb_quarters.csv"),
+                       quiet = quiet)
   if(file.exists(cache_file())) {
     message(crayon::blue("You have downloaded the data to", cache_file()))
   } else {
@@ -115,14 +123,10 @@ cache_load <- function() {
     #message("Using mini example data")
     return(mbquartR::mbquartR_example)
   } else {
-    f <- cache_file()
 
-    if(file.exists(f)) {
-      return(readr::read_csv(f, guess_max = 20000, show_col_types = FALSE,
-                             progress = FALSE))
-    } else {
-      stop("Data does not exist, please download with `quarters_dl()` first")
-    }
+    cache_file_check()
+    readr::read_csv(cache_file(), guess_max = 20000, show_col_types = FALSE,
+                    progress = FALSE)
   }
 }
 

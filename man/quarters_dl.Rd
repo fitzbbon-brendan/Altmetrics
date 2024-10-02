@@ -24,7 +24,7 @@ folder (\code{cache_dir()}).
 \description{
 Downloads the full list of quarter sections and coordinates from the
 Manitoba Geoportal. Note that when the Geoportal is unavailable, data is
-downloaded from an archived version from the package repository on Github
+downloaded from an archived version from the package repository on Github.
 }
 \details{
 This data set should be static.

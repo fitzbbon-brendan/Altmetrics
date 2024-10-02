@@ -10,7 +10,8 @@
 A data frame with 4 rows and 14 columns:
 \describe{
 \item{FID}{Unique ID number}
-\item{Formal Legal Description}{The formal legal description (Leading zeros on numbers)}
+\item{Formal Legal Description}{The formal legal description
+(Leading zeros on numbers)}
 \item{Quarter}{Quarter Section value}
 \item{SECTION}{Section value}
 \item{TOWNSHIP}{Township value}

@@ -26,42 +26,38 @@ search_coord <- function(long, lat) {
   if(length(long) != length(lat))
   stop("Number of longitude and latitude coordinates must be equal.")
 
-  if(!file.exists(cache_file())){
-    stop("Data doesn't exist, please download with `quarters_dl()` first")
-  }
-  else {
-    master_data <- cache_load()
-    search_df <- tibble::tibble(long = long, lat = lat) |>
-      sf::st_as_sf(coords = c("long", "lat"),
-                   crs = "+proj=longlat +datum=WGS84") |>
-      sf::st_transform(crs = "EPSG:3857") |>
-      dplyr::mutate(coords = as.data.frame(
-        sf::st_coordinates(.data[["geometry"]]))) |>
-      tidyr::unnest("coords") |>
-      sf::st_drop_geometry() |>
-      tibble::rowid_to_column("point") |>
-      dplyr::mutate(dist = purrr::map2(
-        .data[["X"]], .data[["Y"]],
-        \(x, y) closest_centroid(master_data, x, y))) |>
-      tidyr::unnest("dist") |>
-      dplyr::mutate(dist = units::set_units(.data[["dist"]], "m")) |>
-      dplyr::select("point", legal = "Informal Legal Description", "dist") |>
-      dplyr::left_join(tibble::tibble(long = long, lat = lat) |>
-                         tibble::rowid_to_column("point"), by = "point") |>
-      dplyr::select(-"point") |>
-      dplyr:: relocate("dist", .after = dplyr::last_col())
+  master_data <- cache_load()
+  search_df <- tibble::tibble(long = long, lat = lat) |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = "+proj=longlat +datum=WGS84") |>
+    sf::st_transform(crs = "EPSG:3857") |>
+    dplyr::mutate(coords = as.data.frame(
+      sf::st_coordinates(.data[["geometry"]]))) |>
+    tidyr::unnest("coords") |>
+    sf::st_drop_geometry() |>
+    tibble::rowid_to_column("point") |>
+    dplyr::mutate(dist = purrr::map2(
+      .data[["X"]], .data[["Y"]],
+      \(x, y) closest_centroid(master_data, x, y))) |>
+    tidyr::unnest("dist") |>
+    dplyr::mutate(dist = units::set_units(.data[["dist"]], "m")) |>
+    dplyr::select("point", legal = "Informal Legal Description", "dist") |>
+    dplyr::left_join(tibble::tibble(long = long, lat = lat) |>
+                       tibble::rowid_to_column("point"), by = "point") |>
+    dplyr::select(-"point") |>
+    dplyr:: relocate("dist", .after = dplyr::last_col())
 
-    if(max(as.numeric(search_df$dist)) >= 1000)
-      stop("One or more coordinates greater than 1000m from nearest quarter",
-           " section center. Please check your data.")
+  if(max(as.numeric(search_df$dist)) >= 1000)
+    stop("One or more coordinates greater than 1000m from nearest quarter",
+         " section center. Please check your data.")
 
-    if(max(as.numeric(search_df$dist)) > 600 && max(as.numeric(search_df$dist))
-       < 1000)
-       warning("One or more coordinates greater than 600m from nearest quarter",
-               " section center. Please check your data.")
-    search_df
-  }
+  if(max(as.numeric(search_df$dist)) > 600 && max(as.numeric(search_df$dist))
+     < 1000)
+    warning("One or more coordinates greater than 600m from nearest quarter",
+            " section center. Please check your data.")
+  search_df
 }
+
 
 
 closest_centroid <- function(master_data, X, Y) {
