@@ -3,6 +3,16 @@
 #' Find the quarter section(s) closest to provided coordinates. Returns the
 #' legal land description
 #'
+#' @details A legal land description consists of four values separated by a -
+#' 1. Quarter Section (SW)
+#' 2. Section (9)
+#' 3. Township (8)
+#' 4. Range (6E1)
+#'
+#' For example:
+#' A legal land description of SW-9-8-6E1 can be interpreted as the Southwest
+#' Quarter of Section 9, Township 8, Range 6 East of the 1st Meridian.
+#'
 #' @param long Longitude in decimal degrees
 #' @param lat Latitude in decimal degrees
 #'
@@ -59,7 +69,16 @@ search_coord <- function(long, lat) {
 }
 
 
-
+#' Closest centroid
+#'
+#' Calculates the euclidean distance between provided coordinates and the the
+#' center coordinates for each land parcel. Filters to find the closest point.
+#'
+#' @param master_data Dataframe. Full legal land description dataset
+#' @param X Numeric. X coordinates in metres (EPSG:3857)
+#' @param Y Numeric. Y coordinates in metres (EPSG:3857)
+#'
+#' @noRd
 closest_centroid <- function(master_data, X, Y) {
   master_data |>
     dplyr::bind_cols(X = X, Y = Y) |>

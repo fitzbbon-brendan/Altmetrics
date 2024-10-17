@@ -40,6 +40,17 @@ map_quarter <- function(x, map.type = "Esri.WorldImagery") {
   mapview::mapview(Centre, map.type = map.type, homebutton = FALSE)
 }
 
+#' Find centre coordinates
+#'
+#' Finds the center coordinates for the supplied legal land description.
+#'
+#' @param x Output from `search_legal()` or `search_coord()` or similar
+#'   dataframe
+#'
+#' @return Tibble. Simple feature collection with legal land description and
+#'   associated point geometry
+#'
+#' @noRd
 centroid <- function(x) {
   cache_load() |>
     dplyr::rename(legal = "Informal Legal Description") |>

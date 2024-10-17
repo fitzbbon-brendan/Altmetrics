@@ -8,7 +8,7 @@
 #'
 #' @param force Logical. If TRUE, forces a re-download of the data. Note this
 #' data shouldn't require regular (or any) updates.
-#' @param ask Logical. If TRUE, asked to create the cache folder for
+#' @param ask Logical. If TRUE, ask to create the cache folder for
 #' MB quarter section data
 #' @param quiet Logical. If TRUE, suppresses status messages while downloading
 #'  the data
@@ -40,11 +40,16 @@ quarters_dl <- function(force = FALSE, ask = TRUE, quiet = FALSE) {
   cache_dl(quiet = quiet)
 }
 
+#' Check cache directory
+#'
 #' Check that data cache directory exists, create if not
 #'
 #' @examples \dontrun{
 #' cache_check()
 #' }
+#'
+#' @param ask Logical. If TRUE, ask to create the cache folder for MB quarter
+#'   section data
 #' @noRd
 cache_check <- function(ask = TRUE) {
 
@@ -64,7 +69,9 @@ cache_check <- function(ask = TRUE) {
 }
 
 
-#' Check whether data file exists
+#' Check cache file
+#'
+#' Check to see if the data file exists
 #'
 #' @noRd
 cache_file_check <- function() {
@@ -74,6 +81,18 @@ cache_file_check <- function() {
   }
 }
 
+#' Download cache data
+#'
+#' Download data from the Manitoba government geoportal source. If the source is
+#' not available it will automatically download an archived copy of the data.
+#' Users can use the mbquartR_dl_url option to specify their own url. The
+#' mbquartR_dl_url_backup option can be set to specify their own file path to
+#' archived data
+#'
+#' @param quier Logical. If TRUE, suppresses status messages while downloading
+#'  the data
+#'
+#' @noRd
 cache_dl <- function(quiet = FALSE) {
 
   # Get the Geoportal URL
@@ -102,20 +121,46 @@ cache_dl <- function(quiet = FALSE) {
   }
 }
 
+#' URL status
+#'
+#' Check to see if the url is working and the status code is 200: The “OK”
+#' Response
+#'
+#' @param url Character string specifying the URL
+#' @noRd
 url_ok <- function(url) {
   h <- curlGetHeaders(url, timeout = 20)
   attr(h, "status") == 200
 }
 
-cache_file <- function(check = FALSE) {
-  file.path(cache_dir(), "mb_quarters.csv")
-}
-
+#' Cache directory path
+#'
+#' Create the cache file directory path. Users can override the default location for
+#' the cache directory by setting it using the option mbquartR_cache_dir
+#'
+#' @noRd
 cache_dir <- function() {
   d <- getOption("mbquartR_cache_dir")
   if(is.null(d)) d <- tools::R_user_dir("mbquartR")
   d
 }
+
+#' Cache file name
+#'
+#' Create a name for the cache file including the full path
+#'
+#' @noRd
+cache_file <- function() {
+  file.path(cache_dir(), "mb_quarters.csv")
+}
+
+#' Load the cached data
+#'
+#' Loads data so it can be used for searching. If the mbquartR_example option is
+#' set (`TRUE`), the mini dataset, `mbquartR_example` is used instead. This is a three
+#' row mini data set included in the package for testing and the vignettes.
+#'
+#' @noRd
 
 cache_load <- function() {
 
