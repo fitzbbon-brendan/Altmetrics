@@ -135,8 +135,9 @@ url_ok <- function(url) {
 
 #' Cache directory path
 #'
-#' Create the cache file directory path. Users can override the default location for
-#' the cache directory by setting it using the option mbquartR_cache_dir
+#'
+#' Create the cache file directory path. Users can override the default location
+#' for the cache directory by setting it using the option mbquartR_cache_dir
 #'
 #' @noRd
 cache_dir <- function() {
@@ -157,8 +158,9 @@ cache_file <- function() {
 #' Load the cached data
 #'
 #' Loads data so it can be used for searching. If the mbquartR_example option is
-#' set (`TRUE`), the mini dataset, `mbquartR_example` is used instead. This is a three
-#' row mini data set included in the package for testing and the vignettes.
+#' set (`TRUE`), the mini dataset, `mbquartR_example` is used instead. This is a
+#' three row mini data set included in the package for testing and the
+#' vignettes.
 #'
 #' @noRd
 
