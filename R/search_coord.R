@@ -1,7 +1,14 @@
 #' Search for the nearest quarter section using latitude and longitude
 #'
 #' Find the quarter section(s) closest to provided coordinates. Returns the
-#' legal land description
+#' legal land description. Users must use provide coordinates in the
+#' decimal degree format.
+#'
+#' The longitudinal extent of Manitoba ranges from approximately -102.0 to
+#' -88.9 degrees (negative values indicate western hemisphere).
+#'
+#' The latitudinal extent of Manitoba ranges from approximately 49.0 to 60.0
+#' degrees (positive values indicate northern hemisphere).
 #'
 #' @details A legal land description consists of four values separated by a -
 #' 1. Quarter Section (SW)
@@ -31,10 +38,16 @@
 search_coord <- function(long, lat) {
 
   if(!is.numeric(long) || !is.numeric(lat))
-  stop("Longitude and latitude must be numbers.")
+    stop("Longitude and latitude must be numbers.")
+
+  if(!(all(long > -102.0016 & long < -88.947)))
+    stop("Longitude values must be between -102.0 and -88.94.")
+
+  if(!all(lat > 48.99267 & lat < 60.00007))
+    stop("Latitude values must be between 49.0 and 60.0.")
 
   if(length(long) != length(lat))
-  stop("Number of longitude and latitude coordinates must be equal.")
+    stop("Number of longitude and latitude coordinates must be equal.")
 
   master_data <- cache_load()
   search_df <- tibble::tibble(long = long, lat = lat) |>

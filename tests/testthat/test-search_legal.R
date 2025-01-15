@@ -6,7 +6,7 @@ test_that("search_legal() returns dataframe", {
   expect_equal(q,
                tibble::tribble(
                  ~legal,           ~long,      ~lat,
-                 "NE-11-33-29W1",   -101.4656,  51.81913), tolerance = TRUE
+                 "NE-11-33-29W1",   -101.4656,  51.81913), tolerance = 0.0001
   )
 
 })
