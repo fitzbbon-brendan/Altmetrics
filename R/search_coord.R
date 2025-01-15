@@ -20,12 +20,16 @@
 #' A legal land description of SW-9-8-6E1 can be interpreted as the Southwest
 #' Quarter of Section 9, Township 8, Range 6 East of the 1st Meridian.
 #'
-#' @param long Longitude in decimal degrees
-#' @param lat Latitude in decimal degrees
+#' @param long Numeric. Vector of longitudes (decimal degree) with resolution
+#' up to one hundred thousandth of a degree. Values outside of bounds will
+#' return error (-102.0 to -88.9 degrees).
+#' @param lat Numeric. Vector of latitudes (decimal degree) with resolution up
+#' to one hundred thousandth of a degree. Values outside of bounds will return
+#' error (49.0 to 60.0 degrees).
 #'
 #' @return A tibble of the latitude and longitude coordinates, corresponding
 #' legal land descriptions, and distance in metres from the provided
-#' coordinates to the centre of the closest quarter section
+#' coordinates to the centre of the closest quarter section.
 #'
 #' @export
 #'

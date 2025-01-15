@@ -12,7 +12,7 @@
 #'   \item{SECTION}{Section value}
 #'   \item{TOWNSHIP}{Township value}
 #'   \item{RANGE}{Range value}
-#'   \item{x, y}{Coordinates}
+#'   \item{x, y}{Center Coordinates}
 #'   ...
 #' }
 #' @source <https://geoportal.gov.mb.ca/>

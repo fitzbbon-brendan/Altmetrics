@@ -2,7 +2,7 @@
 #' Search for the coordinates of MB quarter sections
 #'
 #' Find the centre coordinates of quarter sections using the legal land
-#' description
+#' description.
 #'
 #' @details A legal land description consists of four values separated by a -
 #' 1. Quarter Section (SW)
@@ -24,10 +24,10 @@
 #' NW-36-89-11E1 despite NW-36-89-11E2 existing in the data set.
 #'
 #' @param x Character. Vector of quarter section legal land descriptions you
-#' wish to search for
+#' wish to search for.
 #'
 #' @return A tibble of legal land descriptions, and corresponding latitude and
-#' longitude coordinates
+#' longitude coordinates.
 #' @export
 #'
 #' @examples

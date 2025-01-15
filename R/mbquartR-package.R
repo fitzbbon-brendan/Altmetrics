@@ -2,12 +2,12 @@
 #'
 #' \code{mbquartR} is an R package for locating quarter sections in Manitoba
 #' using lat/long coordinates or the legal land descriptions using the
-#' Manitoba Original Survey Legal Descriptions data set from the Data MB website
-#' (<https://geoportal.gov.mb.ca/>)
-
+#' Manitoba Original Survey Legal Descriptions data set from the DataMB website
+#' (<https://geoportal.gov.mb.ca/>).
+#'
 #' There are four main functions in this package:
 #'
-#' 1. Download the Manitoba Original Survey Legal Descriptions data set
+#'  1. Download the Manitoba Original Survey Legal Descriptions data set
 #'     - [`quarters_dl()`]
 #'
 #'  2. Search for legal land descriptions using lat and long coordinates
