@@ -69,9 +69,9 @@ map_quarter <- function(x, map.type = "Esri.WorldImagery") {
 
   Polygon <- polygon(x)
 
-  pal <- viridis::viridis(length(x))
+  pal <- viridis::viridis(length(unique(x)))
 
-  values_point <- purrr::set_names(pal, x)
+  values_point <- purrr::set_names(pal, unique(x))
   values_poly <- values_point[Polygon$legal]
 
   if(nrow(Polygon) == 0){
