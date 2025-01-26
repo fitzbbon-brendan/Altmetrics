@@ -74,18 +74,20 @@
 <p><a href="https://app.codecov.io/gh/alex-koiter/mbquartR?branch=main" class="external-link"><img src="https://codecov.io/gh/alex-koiter/mbquartR/branch/main/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/alex-koiter/mbquartR/actions?query=workflow%3Apkgcheck" class="external-link"><img src="https://github.com/alex-koiter/mbquartR/workflows/pkgcheck/badge.svg" alt="pkgcheck"></a> <!-- badges: end --></p>
 <p>The goal of <code>mbquartR</code> is to provide an easy way to
 download the Manitoba Original Survey Legal Descriptions data from <a href="https://geoportal.gov.mb.ca/" class="external-link">DataMB</a> and then to locate
-quarter sections in the province of Manitoba. You can search by legal
-land description (e.g., NE-11-33-29W1) or by lat/long coordinates (e.g.,
--101.4656, 51.81913). There is also a convenient map function that plots
-the centres of the quarter sections on a map.</p>
-<p><code>mbquartR</code> was created for those who work with geospatial
-data in Manitoba, particularly those who are working with rural or farm
-parcels of land where the legal land description is commonly used as the
-method of identifying the location. <code>mbquartR</code> also allows
-users to quickly go back and forth between geographic coordinates and
-the legal land description. Most mapping applications (e.g., Google
-Maps) can not find or route to a legal land description, but you can
-with coordinates!</p>
+quarter sections, and other types of land division types, in the
+province of Manitoba. You can search by legal land description (e.g.,
+NE-11-33-29W1) or by lat/long coordinates (e.g., -101.4656, 51.81913).
+There is also a convenient map function that plots the centres and an
+outline of the quarter sections on a map.</p>
+<p>There are over 900,000 parcels of land in Manitoba that have a legal
+land descriptions. <code>mbquartR</code> was created for those who work
+with geospatial data in Manitoba, particularly those who are working
+with rural or farm parcels of land where the legal land description is
+commonly used as the method of identifying the location.
+<code>mbquartR</code> also allows users to quickly go back and forth
+between geographic coordinates and the legal land description. Most
+mapping applications (e.g., Google Maps) can not find or route to a
+legal land description, but you can with coordinates!</p>
 <div class="section level3">
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
@@ -118,11 +120,12 @@ section 1 and ending in the southeast corner with section 36</li>
 <li>A range is a vertical column of townships running north-south and
 are numbered east or west of a designated Principal Meridian</li>
 </ul>
-</div>
-<div class="section level3">
-<h3 id="how-do-legal-land-descriptions-work-in-manitoba">How do legal land descriptions work in Manitoba?<a class="anchor" aria-label="anchor" href="#how-do-legal-land-descriptions-work-in-manitoba"></a>
-</h3>
-<p>A legal land description consists of four values separated by a -</p>
+<div class="section level4">
+<h4 id="how-do-legal-land-descriptions-for-quarter-section-work-in-manitoba">How do legal land descriptions for quarter section work in
+Manitoba?<a class="anchor" aria-label="anchor" href="#how-do-legal-land-descriptions-for-quarter-section-work-in-manitoba"></a>
+</h4>
+<p>A legal land description for a quarter section consists of four
+values separated by a -</p>
 <ol style="list-style-type: decimal">
 <li>Quarter Section (SW)</li>
 <li>Section (9)</li>
@@ -132,6 +135,26 @@ are numbered east or west of a designated Principal Meridian</li>
 <p>For example: A legal land description of SW-9-8-6E1 can be
 interpreted as the Southwest Quarter of Section 9, Township 8, Range 6
 East of the 1st Meridian.</p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="other-land-division-types">Other land division types<a class="anchor" aria-label="anchor" href="#other-land-division-types"></a>
+</h3>
+<p>Quarter sections are the most common type of land division in
+Manitoba but there are other types. The size, shape, and naming
+convention of these other types of land divisions can be different.</p>
+<p>These include:</p>
+<ul>
+<li>RL = River lot (e.g., RL-11-Oak Island)</li>
+<li>Lot = Township lot (e.g., 10-54-27W1)</li>
+<li>OT = Outer two mile lot (e.g., OT-11A-St. Clements)</li>
+<li>PL = Parish lot (e.g., PL-R-St. Andrews)</li>
+<li>SL = Settlement lot (e.g., SL-2-Roman Catholic Mission
+Property)</li>
+<li>WL = Wood lot (e.g., WL-179-Portage La Prairie)</li>
+</ul>
+<p>These other types of land division can also be search for using
+<code><a href="../reference/search_legal.html">search_legal()</a></code></p>
 </div>
 <div class="section level3">
 <h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -157,8 +180,8 @@ square (804.7m by 804.7m) the furthest distance from the center to
 corner is ~570m. You will get a warning if any distances are greater
 than 600m and an error is the distance is greater than 1000m. The tibble
 that is returned provides the legal land descriptions, centre
-coordinates, and the distance from the coordinates provided to the
-closest quarter section centre.</p>
+coordinates, user provided coordinates, and the distance from the
+coordinates provided to the closest quarter section centre.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/search_coord.html">search_coord</a></span><span class="op">(</span>long <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">101.4656</span>, <span class="op">-</span><span class="fl">99.99768</span><span class="op">)</span>, lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">51.81913</span>, <span class="fl">49.928926</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 7</span></span></span>
@@ -189,8 +212,10 @@ NW-36-89-11E1 despite NW-36-89-11E2 existing in the data set.</p>
 <div class="section level4">
 <h4 id="map-quarter-sections">Map quarter sections<a class="anchor" aria-label="anchor" href="#map-quarter-sections"></a>
 </h4>
-<p>You can also quickly plot the center coordinates of located quarter
-sections on an interactive map.</p>
+<p>You can also quickly plot the center coordinates and an outline
+(polygon) of located quarter sections on an interactive map. Outlines
+are only provided for quarter sections as the the dimensions and
+orientation of the other land division types vary.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_legal.html">search_legal</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NE-1-12-12E1"</span>, <span class="st">"NE-11-33-29W1"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/map_quarter.html">map_quarter</a></span><span class="op">(</span><span class="va">example</span><span class="op">)</span></span>
