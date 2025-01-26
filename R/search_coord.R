@@ -28,8 +28,8 @@
 #' error (49.0 to 60.0 degrees).
 #'
 #' @return A tibble of the latitude and longitude coordinates, corresponding
-#' legal land descriptions, and distance in metres from the provided
-#' coordinates to the centre of the closest quarter section.
+#' legal land descriptions, land division type, and distance in metres from the
+#' provided coordinates to the centre of the closest quarter section.
 #'
 #' @export
 #'
@@ -57,7 +57,7 @@ search_coord <- function(long, lat) {
   search_df <- tibble::tibble(long = long, lat = lat) |>
     sf::st_as_sf(coords = c("long", "lat"),
                  crs = "+proj=longlat +datum=WGS84") |>
-    sf::st_transform(crs = "EPSG:3857") |>
+    sf::st_transform(crs = "EPSG:3158") |>
     dplyr::mutate(coords = as.data.frame(
       sf::st_coordinates(.data[["geometry"]]))) |>
     tidyr::unnest("coords") |>
@@ -68,8 +68,18 @@ search_coord <- function(long, lat) {
       \(x, y) closest_centroid(master_data, x, y))) |>
     tidyr::unnest("dist") |>
     dplyr::mutate(dist = units::set_units(.data[["dist"]], "m")) |>
-    dplyr::select("point", legal = "Informal Legal Description", "dist") |>
-    dplyr::left_join(tibble::tibble(long = long, lat = lat) |>
+    dplyr::select("point", legal = "Informal Legal Description",
+                  .data[["x"]] , .data[["y"]],
+                  type = "Type",
+                  "dist") |>
+    sf::st_as_sf(coords = c("x", "y"), crs = "EPSG:3158") |>
+    sf::st_transform(crs = "+proj=longlat +datum=WGS84") |>
+    dplyr::mutate(coords = as.data.frame(
+      sf::st_coordinates(.data[["geometry"]]))) |>
+    tidyr::unnest("coords") |>
+    sf::st_drop_geometry() |>
+    dplyr::rename("long" = .data[["X"]], "lat" = .data[["Y"]]) |>
+    dplyr::left_join(tibble::tibble(long_user = long, lat_user = lat) |>
                        tibble::rowid_to_column("point"), by = "point") |>
     dplyr::select(-"point") |>
     dplyr:: relocate("dist", .after = dplyr::last_col())
@@ -98,10 +108,16 @@ search_coord <- function(long, lat) {
 #' @noRd
 closest_centroid <- function(master_data, X, Y) {
   master_data |>
+    sf::st_as_sf(coords = c("x", "y"),
+                 crs = "EPSG:3857") |>
+    sf::st_transform(crs = "EPSG:3158") |>
+    dplyr::mutate(coords = as.data.frame(
+      sf::st_coordinates(.data[["geometry"]]))) |>
+    tidyr::unnest("coords") |>
+    sf::st_drop_geometry() |>
+    dplyr::rename("x" = X, "y" = Y) |>
     dplyr::bind_cols(X = X, Y = Y) |>
     dplyr::mutate(dist = ((X - .data[["x"]])^2 + (.data[["y"]] - Y) ^2)^0.5) |>
     dplyr::filter(.data[["dist"]] == min(.data[["dist"]])) |>
     dplyr::select(-X, -Y)
 }
-
-

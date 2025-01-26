@@ -19,7 +19,8 @@
 #'
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' quarters_dl()
 #' }
 #'

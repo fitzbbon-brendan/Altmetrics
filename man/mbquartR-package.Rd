@@ -8,11 +8,11 @@
 \description{
 \code{mbquartR} is an R package for locating quarter sections in Manitoba
 using lat/long coordinates or the legal land descriptions using the
-Manitoba Original Survey Legal Descriptions data set from the Data MB website
-(\url{https://geoportal.gov.mb.ca/})
-There are four main functions in this package:
+Manitoba Original Survey Legal Descriptions data set from the DataMB website
+(\url{https://geoportal.gov.mb.ca/}).
 }
 \details{
+There are four main functions in this package:
 \enumerate{
 \item Download the Manitoba Original Survey Legal Descriptions data set
 \itemize{

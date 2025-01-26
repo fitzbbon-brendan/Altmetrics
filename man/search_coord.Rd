@@ -7,18 +7,42 @@
 search_coord(long, lat)
 }
 \arguments{
-\item{long}{Longitude in decimal degrees}
+\item{long}{Numeric. Vector of longitudes (decimal degree) with resolution
+up to one hundred thousandth of a degree. Values outside of bounds will
+return error (-102.0 to -88.9 degrees).}
 
-\item{lat}{Latitude in decimal degrees}
+\item{lat}{Numeric. Vector of latitudes (decimal degree) with resolution up
+to one hundred thousandth of a degree. Values outside of bounds will return
+error (49.0 to 60.0 degrees).}
 }
 \value{
 A tibble of the latitude and longitude coordinates, corresponding
-legal land descriptions, and distance in metres from the provided
-coordinates to the centre of the closest quarter section
+legal land descriptions, land division type, and distance in metres from the
+provided coordinates to the centre of the closest quarter section.
 }
 \description{
 Find the quarter section(s) closest to provided coordinates. Returns the
-legal land description
+legal land description. Users must use provide coordinates in the
+decimal degree format.
+}
+\details{
+The longitudinal extent of Manitoba ranges from approximately -102.0 to
+-88.9 degrees (negative values indicate western hemisphere).
+
+The latitudinal extent of Manitoba ranges from approximately 49.0 to 60.0
+degrees (positive values indicate northern hemisphere).
+
+A legal land description consists of four values separated by a -
+\enumerate{
+\item Quarter Section (SW)
+\item Section (9)
+\item Township (8)
+\item Range (6E1)
+}
+
+For example:
+A legal land description of SW-9-8-6E1 can be interpreted as the Southwest
+Quarter of Section 9, Township 8, Range 6 East of the 1st Meridian.
 }
 \examples{
 search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))

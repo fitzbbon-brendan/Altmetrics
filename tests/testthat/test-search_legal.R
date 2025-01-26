@@ -2,11 +2,12 @@ test_that("search_legal() returns dataframe", {
 
   expect_silent(q <- search_legal(x = "NE-11-33-29W"))
   expect_s3_class(q, "data.frame")
-  expect_named(q, c("legal", "long", "lat"))
+  expect_named(q, c("legal", "type", "long", "lat"))
   expect_equal(q,
                tibble::tribble(
-                 ~legal,           ~long,      ~lat,
-                 "NE-11-33-29W1",   -101.4656,  51.81913), tolerance = 0.0001
+                 ~legal,           ~type,       ~long,      ~lat,
+                 "NE-11-33-29W1",  "Quarter",    -101.4656,  51.81913),
+               tolerance = 0.0001
   )
 
 })

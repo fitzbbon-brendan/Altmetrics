@@ -10,7 +10,7 @@ quarters_dl(force = FALSE, ask = TRUE, quiet = FALSE)
 \item{force}{Logical. If TRUE, forces a re-download of the data. Note this
 data shouldn't require regular (or any) updates.}
 
-\item{ask}{Logical. If TRUE, asked to create the cache folder for
+\item{ask}{Logical. If TRUE, ask to create the cache folder for
 MB quarter section data}
 
 \item{quiet}{Logical. If TRUE, suppresses status messages while downloading

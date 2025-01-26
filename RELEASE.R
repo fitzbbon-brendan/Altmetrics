@@ -2,6 +2,11 @@
 # Re-Build the README
 devtools::build_readme()
 
+devtools::check()
+
+devtools::document()
+#devtools::build()
+
 # Test coverage
 covr::report()
 

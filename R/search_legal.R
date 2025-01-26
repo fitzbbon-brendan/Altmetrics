@@ -1,10 +1,11 @@
 
 #' Search for the coordinates of MB quarter sections
 #'
-#' Find the centre coordinates of quarter sections using the legal land
-#' description.
+#' Find the centre coordinates of quarter sections and other legal division
+#' types using the legal land description.
 #'
-#' @details A legal land description consists of four values separated by a -
+#' @details A legal land description for a quarter section consists of four
+#' values separated by a -
 #' 1. Quarter Section (SW)
 #' 2. Section (9)
 #' 3. Township (8)
@@ -23,11 +24,19 @@
 #' For example, a search for NW-36-89-11E will by default search for
 #' NW-36-89-11E1 despite NW-36-89-11E2 existing in the data set.
 #'
+#' Other land division types can have different naming conventions and include:
+#'  - RL = River lot (e.g., RL-11-Oak Island)
+#'  - Lot = Township lot (e.g., 10-54-27W1)
+#'  - OT = Outer two mile lot (e.g., OT-11A-St. Clements)
+#'  - PL = Parish lot (e.g., PL-R-St. Andrews)
+#'  - SL = Settlement lot (e.g., SL-2-Roman Catholic Mission Property)
+#'  - WL = Wood lot (e.g., WL-179-Portage La Prairie)
+#'
 #' @param x Character. Vector of quarter section legal land descriptions you
 #' wish to search for.
 #'
-#' @return A tibble of legal land descriptions, and corresponding latitude and
-#' longitude coordinates.
+#' @return A tibble of legal land descriptions, division type, and
+#' corresponding latitude and longitude coordinates.
 #' @export
 #'
 #' @examples
@@ -62,6 +71,7 @@ search_legal <- function(x) {
     tidyr::unnest("coords") |>
     sf::st_drop_geometry() |>
     dplyr::select(legal = "Informal Legal Description",
+                  type = "Type",
                   long = "X", lat = "Y") |>
     tibble::tibble()
 

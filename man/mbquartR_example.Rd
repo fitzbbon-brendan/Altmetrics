@@ -16,7 +16,7 @@ A data frame with 4 rows and 14 columns:
 \item{SECTION}{Section value}
 \item{TOWNSHIP}{Township value}
 \item{RANGE}{Range value}
-\item{x, y}{Coordinates}
+\item{x, y}{Center Coordinates}
 ...
 }
 }
