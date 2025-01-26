@@ -147,7 +147,8 @@ polygon <- function(x) {
                   endCapStyle = "SQUARE") |>
     dplyr::group_by(.data[["legal"]], .data[["Type"]]) |>
     tidyr::nest() |>
-    dplyr::mutate(bbox = purrr::map(.data[["data"]], ~sf::st_as_sfc(sf::st_bbox(.x)))) |>
+    dplyr::mutate(bbox = purrr::map(.data[["data"]],
+                                    ~sf::st_as_sfc(sf::st_bbox(.x)))) |>
     dplyr::ungroup() |>
     tidyr::unnest(.data[["bbox"]]) |>
     sf::st_as_sf() |>

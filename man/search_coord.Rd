@@ -16,8 +16,9 @@ to one hundred thousandth of a degree. Values outside of bounds will return
 error (49.0 to 60.0 degrees).}
 }
 \value{
-A tibble of the latitude and longitude coordinates, corresponding
-legal land descriptions, land division type, and distance in metres from the
+A tibble of the centre latitude and longitude coordinates,
+corresponding legal land descriptions, land division type, the user provided
+latitude and longitude coordinates, and distance in metres from the
 provided coordinates to the centre of the closest quarter section.
 }
 \description{
