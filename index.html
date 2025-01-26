@@ -8,8 +8,8 @@
 <title>Finding Manitoba Quarter Sections • mbquartR</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Finding Manitoba Quarter Sections">
 <meta name="description" content='This package has three main functions: 1) find the coordinates of a quarter sections given the legal land description (e.g., "NE-11-33-29W"); 2) find the legal land description using coordinates (lat and long); and 3) plot these points on a map.'>
 <meta property="og:description" content='This package has three main functions: 1) find the coordinates of a quarter sections given the legal land description (e.g., "NE-11-33-29W"); 2) find the legal land description using coordinates (lat and long); and 3) plot these points on a map.'>
@@ -51,8 +51,14 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of <code>mbquartR</code> is to provide an easy way to locate quarter sections in the province of Manitoba. You can search by legal land description (e.g., NE-11-33-29W1) or by lat/long coordinates (e.g., -101.4656, 51.81913). There is also a convenient map function that plots the centres of the quarter sections on a map.</p>
-<p>For more details checkout the <a href="http://alexkoiter.ca/mbquartR/">mbquartR website</a>.</p>
+<p>The goal of <code>mbquartR</code> is to provide an easy way to download the Manitoba Original Survey Legal Descriptions data from <a href="https://geoportal.gov.mb.ca/" class="external-link">DataMB</a> and then to locate quarter sections in the province of Manitoba. You can search by legal land description (e.g., NE-11-33-29W1) or by lat/long coordinates (e.g., -101.4656, 51.81913). There is also a convenient map function that plots the centres of the quarter sections on a map.</p>
+<p><code>mbquartR</code> was created for those who work with geospatial data in Manitoba, particularly those who are working with rural or farm parcels of land where the legal land description is commonly used as the method of identifying the location. <code>mbquartR</code> also allows users to quickly go back and forth between geographic coordinates and the legal land description. Most mapping applications (e.g., Google Maps) can not find or route to a legal land description, but you can with coordinates!</p>
+<p>Checkout the <a href="http://alexkoiter.ca/mbquartR/">mbquartR website</a> for vignettes/code examples.</p>
+<div class="section level2">
+<h2 id="what-is-a-quarter-section">What is a quarter section?<a class="anchor" aria-label="anchor" href="#what-is-a-quarter-section"></a>
+</h2>
+<p>A quarter section in Manitoba is a land unit measuring 160 acres (~64.8 ha), representing a quarter of a square mile. It originates from the <a href="https://en.wikipedia.org/wiki/Dominion_Land_Survey" class="external-link">Dominion Land Survey system</a>, introduced in the late 19th century to organize the European settlement and colonization of Western Canada. The grid system covers most of the province of Manitoba and organizes land into a hierarchy of quarter sections, sections, townships, and ranges.</p>
+</div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -60,6 +66,26 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"alex-koiter/mbquartR"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="this-package-is-primarally-maintained-by">This package is primarally maintained by:<a class="anchor" aria-label="anchor" href="#this-package-is-primarally-maintained-by"></a>
+</h2>
+<p><strong>Alex Koiter</strong> (koitera AT brandonu.ca; <a href="https://github.com/alex-koiter" class="external-link">@alex-koiter</a>) Brandon University Department of Geography &amp; Environment Brandon, Manitoba Canada</p>
+</div>
+<div class="section level2">
+<h2 id="access-constraints">Access Constraints<a class="anchor" aria-label="anchor" href="#access-constraints"></a>
+</h2>
+<p>The data is publicly available through the <a href="https://geoportal.gov.mb.ca/" class="external-link">DataMB</a>, the province of Manitoba’s public open data platform. The usage of this data is subject to the <a href="https://www.gov.mb.ca/legal/copyright.html" class="external-link">OpenMB Information and Data Use License</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
+</h2>
+<p>All suggestions are welcomed, big and small, on how to make this package more robust, functional, and user friendly. Please read the <a href="https://alexkoiter.ca/mbquartR/CONTRIBUTING.html" class="external-link">contributing guide</a> to learn more.</p>
+</div>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
+<p>Please note that this project is released with a <a href="https://ropensci.org/code-of-conduct/" class="external-link">Contributor Code of Conduct</a>. By participating in this package development you agree to abide by its terms.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
