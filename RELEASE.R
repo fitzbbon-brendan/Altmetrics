@@ -36,3 +36,6 @@ print(check)
 # pkgdown checks - BUILD PACKAGE FIRST!
 pkgdown::build_article("mbquartR")
 
+# Local preview in docs/ (which is gitignored)
+pkgdown::build_site()
+

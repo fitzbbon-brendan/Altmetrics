@@ -15,9 +15,11 @@ Manitoba Original Survey Legal Descriptions data set from the DataMB website
 There are four main functions in this package:
 \enumerate{
 \item Download the Manitoba Original Survey Legal Descriptions data set
+}
 \itemize{
 \item \code{\link[=quarters_dl]{quarters_dl()}}
 }
+\enumerate{
 \item Search for legal land descriptions using lat and long coordinates
 }
 \itemize{

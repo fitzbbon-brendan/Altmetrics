@@ -19,10 +19,9 @@
 #'
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive()
 #' quarters_dl()
-#' }
+#'
 #'
 quarters_dl <- function(force = FALSE, ask = TRUE, quiet = FALSE) {
 

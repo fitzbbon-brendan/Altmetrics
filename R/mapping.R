@@ -75,14 +75,16 @@ map_quarter <- function(x, map.type = "Esri.WorldImagery") {
   values_poly <- values_point[Polygon$legal]
 
   if(nrow(Polygon) == 0){
-    mapview::mapview(Centre,col.regions = values_point,
+    mapview::mapview(Centre, col.regions = values_point,
                      map.type = map.type, homebutton = FALSE)
 
   } else{
-    mapview::mapview(Centre, col.regions = values_point,
-                     map.type = map.type, homebutton = FALSE) +
       mapview::mapview(Polygon, col.regions = values_poly,
-                       color = "black", lwd = 2)
+                       map.type = map.type, color = "black",
+                       homebutton = FALSE, lwd = 2) +
+      mapview::mapview(Centre, col.regions = values_point,
+                       map.type = map.type, color = "black",
+                       homebutton = FALSE)
   }
 }
 

@@ -22,7 +22,8 @@ latitude and longitude coordinates, and distance in metres from the
 provided coordinates to the centre of the closest quarter section.
 }
 \description{
-Find the quarter section(s) closest to provided coordinates. Returns the
+Find the quarter section(s) and other legal division
+types closest to provided coordinates. Returns the
 legal land description. Users must use provide coordinates in the
 decimal degree format.
 }
@@ -44,6 +45,16 @@ A legal land description consists of four values separated by a -
 For example:
 A legal land description of SW-9-8-6E1 can be interpreted as the Southwest
 Quarter of Section 9, Township 8, Range 6 East of the 1st Meridian.
+
+#' Other land division types can have different naming conventions and include:
+\itemize{
+\item RL = River lot (e.g., RL-11-Oak Island)
+\item Lot = Township lot (e.g., 10-54-27W1)
+\item OT = Outer two mile lot (e.g., OT-11A-St. Clements)
+\item PL = Parish lot (e.g., PL-R-St. Andrews)
+\item SL = Settlement lot (e.g., SL-2-Roman Catholic Mission Property)
+\item WL = Wood lot (e.g., WL-179-Portage La Prairie)
+}
 }
 \examples{
 search_coord(long = c(-101.4656, -99.99768), lat = c(51.81913, 49.928926))

@@ -8,7 +8,7 @@
 #' There are four main functions in this package:
 #'
 #'  1. Download the Manitoba Original Survey Legal Descriptions data set
-#'     - [`quarters_dl()`]
+#'    - [`quarters_dl()`]
 #'
 #'  2. Search for legal land descriptions using lat and long coordinates
 #'    - [`search_coord()`]

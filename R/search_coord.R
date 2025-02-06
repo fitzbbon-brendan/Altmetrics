@@ -1,6 +1,7 @@
 #' Search for the nearest quarter section using latitude and longitude
 #'
-#' Find the quarter section(s) closest to provided coordinates. Returns the
+#' Find the quarter section(s) and other legal division
+#' types closest to provided coordinates. Returns the
 #' legal land description. Users must use provide coordinates in the
 #' decimal degree format.
 #'
@@ -19,6 +20,14 @@
 #' For example:
 #' A legal land description of SW-9-8-6E1 can be interpreted as the Southwest
 #' Quarter of Section 9, Township 8, Range 6 East of the 1st Meridian.
+#'
+#'#' Other land division types can have different naming conventions and include:
+#'  - RL = River lot (e.g., RL-11-Oak Island)
+#'  - Lot = Township lot (e.g., 10-54-27W1)
+#'  - OT = Outer two mile lot (e.g., OT-11A-St. Clements)
+#'  - PL = Parish lot (e.g., PL-R-St. Andrews)
+#'  - SL = Settlement lot (e.g., SL-2-Roman Catholic Mission Property)
+#'  - WL = Wood lot (e.g., WL-179-Portage La Prairie)
 #'
 #' @param long Numeric. Vector of longitudes (decimal degree) with resolution
 #' up to one hundred thousandth of a degree. Values outside of bounds will

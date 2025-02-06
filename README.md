@@ -20,15 +20,16 @@ lat/long coordinates (e.g., -101.4656, 51.81913). There is also a
 convenient map function that plots the centres and outlines (polygons)
 of the quarter sections on a map.
 
-There are over 900,000 parcels of land in Manitoba that have a legal
-land descriptions. `mbquartR` was created for those who work with
-geospatial data in Manitoba, particularly those who are working with
-rural or farm parcels of land where the legal land description is
-commonly used as the method of identifying the location. `mbquartR` also
-allows users to quickly go back and forth between geographic coordinates
-and the legal land description. Most mapping applications (e.g., Google
-Maps) can not find or route to a legal land description, but you can
-with coordinates!
+The Manitoba Original Survey Legal Descriptions data set covers the
+entire province of Manitoba and there are over 900,000 parcels of land
+that have a legal land description. `mbquartR` was created for those who
+work with geospatial data in Manitoba, particularly those who are
+working with rural or farm parcels of land where the legal land
+description is commonly used as the method of identifying the location.
+`mbquartR` also allows users to quickly go back and forth between
+geographic coordinates and the legal land description. Most mapping
+applications (e.g., Google Maps) can not find or route to a legal land
+description, but you can with coordinates!
 
 Checkout the [mbquartR website](http://alexkoiter.ca/mbquartR/) for
 vignettes/code examples.
