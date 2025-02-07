@@ -25,6 +25,8 @@
 #' @export
 #'
 #' @examples
+#' mapviewOptions(fgb = FALSE)
+#'
 #' search1 <- search_legal(x = c("NE-11-33-29W1", "SW-20-2-1W1"))
 #' map_quarter(x = search1)
 #'
@@ -76,7 +78,8 @@ map_quarter <- function(x, map.type = "Esri.WorldImagery") {
 
   if(nrow(Polygon) == 0){
     mapview::mapview(Centre, col.regions = values_point,
-                     map.type = map.type, homebutton = FALSE)
+                     map.type = map.type, homebutton = FALSE) |>
+      print()
 
   } else{
       mapview::mapview(Polygon, col.regions = values_poly,
@@ -84,7 +87,8 @@ map_quarter <- function(x, map.type = "Esri.WorldImagery") {
                        homebutton = FALSE, lwd = 2) +
       mapview::mapview(Centre, col.regions = values_point,
                        map.type = map.type, color = "black",
-                       homebutton = FALSE)
+                       homebutton = FALSE) |>
+      print()
   }
 }
 

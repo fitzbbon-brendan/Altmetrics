@@ -39,3 +39,4 @@ pkgdown::build_article("mbquartR")
 # Local preview in docs/ (which is gitignored)
 pkgdown::build_site()
 
+pkgdown::build_reference()
