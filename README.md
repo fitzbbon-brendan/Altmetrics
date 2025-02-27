@@ -64,11 +64,6 @@ devtools::install_github("alex-koiter/mbquartR")
 
 ## Where is Manitoba?
 
-    #> Warning: attribute variables are assumed to be spatially constant throughout
-    #> all geometries
-    #> Warning: attribute variables are assumed to be spatially constant throughout
-    #> all geometries
-
 <div class="figure">
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" alt="Location of the province of Manitoba and surrounding provinces and territories of Ontario (ON), Saskatchewan (SK), Nunavut (NU), and Northwest Territories (NT) within south-central Canada. Manitoban cities with a population &gt; 10,000. Inset: Location of Manitoba within North America" width="100%" />
