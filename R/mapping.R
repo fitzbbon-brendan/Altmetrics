@@ -25,7 +25,6 @@
 #' @export
 #'
 #' @examples
-#' mapviewOptions(fgb = FALSE)
 #'
 #' search1 <- search_legal(x = c("NE-11-33-29W1", "SW-20-2-1W1"))
 #' map_quarter(x = search1)

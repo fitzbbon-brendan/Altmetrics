@@ -45,6 +45,14 @@ colonization of Western Canada. The grid system covers most of the
 province of Manitoba and organizes land into a hierarchy of quarter
 sections, sections, townships, and ranges.
 
+## Data Sources
+
+The full list of quarter sections and coordinates are downloaded from
+[DataMB](https://geoportal.gov.mb.ca/). Note that occasionally this site
+is unavailable, in this situation an [archived
+version](https://github.com/alex-koiter/mbquartR/releases/) of the data
+is downloaded from the package repository on GitHub.
+
 ## Installation
 
 You can install the development version of `mbquartR` like so:
@@ -53,6 +61,26 @@ You can install the development version of `mbquartR` like so:
 # install.packages("devtools")
 devtools::install_github("alex-koiter/mbquartR")
 ```
+
+## Where is Manitoba?
+
+    #> Warning: attribute variables are assumed to be spatially constant throughout
+    #> all geometries
+    #> Warning: attribute variables are assumed to be spatially constant throughout
+    #> all geometries
+
+<div class="figure">
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" alt="Location of the province of Manitoba and surrounding provinces and territories of Ontario (ON), Saskatchewan (SK), Nunavut (NU), and Northwest Territories (NT) within south-central Canada. Manitoban cities with a population &gt; 10,000. Inset: Location of Manitoba within North America" width="100%" />
+<p class="caption">
+Location of the province of Manitoba and surrounding provinces and
+territories of Ontario (ON), Saskatchewan (SK), Nunavut (NU), and
+Northwest Territories (NT) within south-central Canada. Manitoban cities
+with a population \> 10,000. Inset: Location of Manitoba within North
+America
+</p>
+
+</div>
 
 ## This package is primarally maintained by:
 
