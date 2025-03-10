@@ -50,4 +50,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Alex Koiter \email{koitera@brandonu.ca} (\href{https://orcid.org/0000-0002-9355-9561}{ORCID})
 
+Other contributors:
+\itemize{
+  \item Sheila Saia (Sheila reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/658) [reviewer]
+  \item Emily Markowitz (Sheila reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/658) [reviewer]
+}
+
 }
