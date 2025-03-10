@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   example: example.html
   mbquartR: mbquartR.html
-last_built: 2025-02-27T20:37Z
+last_built: 2025-03-10T20:04Z
 urls:
-  reference: http://alexkoiter.ca/mbquartR/reference
-  article: http://alexkoiter.ca/mbquartR/articles
+  reference: https://docs.ropensci.org/mbquartR/reference
+  article: https://docs.ropensci.org/mbquartR/articles

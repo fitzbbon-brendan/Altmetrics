@@ -42,7 +42,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/alex-koiter/mbquartR/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ropensci/mbquartR/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -64,19 +64,19 @@
       <h1>mbquartR</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/alex-koiter/mbquartR/blob/main/vignettes/mbquartR.Rmd" class="external-link"><code>vignettes/mbquartR.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ropensci/mbquartR/blob/main/vignettes/mbquartR.Rmd" class="external-link"><code>vignettes/mbquartR.Rmd</code></a></small>
       <div class="d-none name"><code>mbquartR.Rmd</code></div>
     </div>
 
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://alexkoiter.ca/mbquartR/">mbquartR</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/mbquartR/">mbquartR</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="mbquartr">mbquartR<a class="anchor" aria-label="anchor" href="#mbquartr"></a>
 </h2>
 <!-- badges: start -->
-<p><a href="https://app.codecov.io/gh/alex-koiter/mbquartR?branch=main" class="external-link"><img src="https://codecov.io/gh/alex-koiter/mbquartR/branch/main/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/alex-koiter/mbquartR/actions?query=workflow%3Apkgcheck" class="external-link"><img src="https://github.com/alex-koiter/mbquartR/workflows/pkgcheck/badge.svg" alt="pkgcheck"></a> <!-- badges: end --></p>
+<p><a href="https://app.codecov.io/gh/ropensci/mbquartR?branch=main" class="external-link"><img src="https://codecov.io/gh/ropensci/mbquartR/branch/main/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/ropensci/mbquartR/actions?query=workflow%3Apkgcheck" class="external-link"><img src="https://github.com/ropensci/mbquartR/workflows/pkgcheck/badge.svg" alt="pkgcheck"></a> <!-- badges: end --></p>
 <p>The goal of <code>mbquartR</code> is to provide an easy way to
 download the Manitoba Original Survey Legal Descriptions data from <a href="https://geoportal.gov.mb.ca/" class="external-link">DataMB</a> and then to locate
 quarter sections, and other types of land division types, in the
@@ -100,8 +100,7 @@ legal land description, but you can with coordinates!</p>
 <p>You can install the development version of <code>mbquartR</code> like
 so:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"alex-koiter/mbquartR"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mbquartR"</span>, repos <span class="op">=</span> <span class="st">"https://ropensci.r-universe.dev"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="what-is-a-quarter-section">What is a quarter section?<a class="anchor" aria-label="anchor" href="#what-is-a-quarter-section"></a>

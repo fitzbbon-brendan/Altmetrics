@@ -42,7 +42,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/alex-koiter/mbquartR/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ropensci/mbquartR/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -68,14 +68,12 @@ Koiter</h4>
             
             <h4 data-toc-skip class="date">2025-02-04</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/alex-koiter/mbquartR/blob/main/vignettes/example.Rmd" class="external-link"><code>vignettes/example.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ropensci/mbquartR/blob/main/vignettes/example.Rmd" class="external-link"><code>vignettes/example.Rmd</code></a></small>
       <div class="d-none name"><code>example.Rmd</code></div>
     </div>
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://alexkoiter.ca/mbquartR/">mbquartR</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -120,7 +118,7 @@ than 600,000 km<sup>2</sup>. Most mapping services are also unable to
 search for legal land description (e.g., Google Maps) which makes
 identifying where these soil sample were taken very difficult!</p>
 <p>For an explanation of quarter sections and other land types, please
-visit the <a href="http://alexkoiter.ca/mbquartR/articles/mbquartR.html">Get
+visit the <a href="https://docs.ropensci.org/mbquartR/articles/mbquartR.html">Get
 started</a> page.</p>
 <div class="section level4">
 <h4 id="scenario">Scenario:<a class="anchor" aria-label="anchor" href="#scenario"></a>
@@ -133,7 +131,7 @@ samples were taken so I have some additional context for interpreting
 the data. Three of these samples were collected in Quarter Sections
 (most common type of land division) and one was collected in a River
 Lot</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">soil_soc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  soc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.72</span>, <span class="fl">2.35</span>, <span class="fl">3.08</span>, <span class="fl">3.94</span><span class="op">)</span>,</span>
 <span>  legal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SW-14-8-2E1"</span>, <span class="st">"NE-22-08-1E"</span>, <span class="st">"NW-10-9-1E1"</span>, <span class="st">"RL-22-St. Norbert"</span><span class="op">)</span><span class="op">)</span></span>
@@ -147,9 +145,13 @@ Lot</p>
 <div class="section level4">
 <h4 id="download-the-data-set">Download the data set<a class="anchor" aria-label="anchor" href="#download-the-data-set"></a>
 </h4>
-<p>Your first step is to download the Manitoba Original Survey Legal
-Descriptions data from <a href="https://geoportal.gov.mb.ca/" class="external-link">DataMB</a>
-which <code>mbquartR</code> helps you do.</p>
+<p>Your first step is to load the package and then download the Manitoba
+Original Survey Legal Descriptions data from <a href="https://geoportal.gov.mb.ca/" class="external-link">DataMB</a> which
+<code>mbquartR</code> helps you do.</p>
+<p>Load <code>mbquartR</code></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/mbquartR/">mbquartR</a></span><span class="op">)</span></span></code></pre></div>
+<p>Download data set</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/quarters_dl.html">quarters_dl</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
