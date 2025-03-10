@@ -4,10 +4,10 @@ Version: 0.1.0
 Authors@R: c(
     person("Alex", "Koiter", , "koitera@brandonu.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9355-9561")),
-    person("Sheila", Saia", role = "rev",
+    person("Sheila", "Saia", role = "rev",
            comment = "Sheila reviewed the package for rOpenSci, see 
                   https://github.com/ropensci/software-review/issues/658"),
-    person("Emily", Markowitz", role = "rev",
+    person("Emily", "Markowitz", role = "rev",
            comment = "Sheila reviewed the package for rOpenSci, see 
                   https://github.com/ropensci/software-review/issues/658")
            )
