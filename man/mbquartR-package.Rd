@@ -41,9 +41,9 @@ There are four main functions in this package:
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://alexkoiter.ca/mbquartR/}
-  \item \url{https://github.com/alex-koiter/mbquartR}
-  \item Report bugs at \url{https://github.com/alex-koiter/mbquartR/issues}
+  \item \url{https://docs.ropensci.org/mbquartR/}
+  \item \url{https://github.com/ropensci/mbquartR}
+  \item Report bugs at \url{https://github.com/ropensci/mbquartR/issues}
 }
 
 }

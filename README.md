@@ -6,9 +6,9 @@
 <!-- badges: start -->
 
 [![Codecov test
-coverage](https://codecov.io/gh/alex-koiter/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/alex-koiter/mbquartR?branch=main)
-[![R-CMD-check](https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml)
-[![pkgcheck](https://github.com/alex-koiter/mbquartR/workflows/pkgcheck/badge.svg)](https://github.com/alex-koiter/mbquartR/actions?query=workflow%3Apkgcheck)
+coverage](https://codecov.io/gh/ropensci/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/mbquartR?branch=main)
+[![R-CMD-check](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml)
+[![pkgcheck](https://github.com/ropensci/mbquartR/workflows/pkgcheck/badge.svg)](https://github.com/ropensci/mbquartR/actions?query=workflow%3Apkgcheck)
 <!-- badges: end -->
 
 The goal of `mbquartR` is to provide an easy way to download the
@@ -31,7 +31,7 @@ geographic coordinates and the legal land description. Most mapping
 applications (e.g., Google Maps) can not find or route to a legal land
 description, but you can with coordinates!
 
-Checkout the [mbquartR website](http://alexkoiter.ca/mbquartR/) for
+Checkout the [mbquartR website](https://docs.ropensci.org/mbquartR/) for
 vignettes/code examples.
 
 ## What is a quarter section?
@@ -50,16 +50,15 @@ sections, sections, townships, and ranges.
 The full list of quarter sections and coordinates are downloaded from
 [DataMB](https://geoportal.gov.mb.ca/). Note that occasionally this site
 is unavailable, in this situation an [archived
-version](https://github.com/alex-koiter/mbquartR/releases/) of the data
-is downloaded from the package repository on GitHub.
+version](https://github.com/ropensci/mbquartR/releases/) of the data is
+downloaded from the package repository on GitHub.
 
 ## Installation
 
 You can install the development version of `mbquartR` like so:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("alex-koiter/mbquartR")
+install.packages("mbquartR", repos = "https://ropensci.r-universe.dev")
 ```
 
 ## Where is Manitoba?
@@ -80,9 +79,12 @@ within North America
 ## This package is primarally maintained by:
 
 **Alex Koiter** (koitera@brandonu.ca;
-[@alex-koiter](https://github.com/alex-koiter)) Brandon University
+[@alex-koiter](https://github.com/alex-koiter))
 
-Department of Geography & Environment
+Brandon University
+
+[Department of Geography &
+Environment](https://www.brandonu.ca/geography/)
 
 Brandon, Manitoba
 
@@ -100,8 +102,9 @@ License](https://www.gov.mb.ca/legal/copyright.html).
 
 All suggestions are welcomed, big and small, on how to make this package
 more robust, functional, and user friendly. Please read the
-[contributing guide](https://alexkoiter.ca/mbquartR/CONTRIBUTING.html)
-to learn more.
+[contributing
+guide](https://docs.ropensci.org/mbquartR/CONTRIBUTING.html) to learn
+more.
 
 ## Code of Conduct
 

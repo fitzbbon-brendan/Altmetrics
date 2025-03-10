@@ -18,9 +18,6 @@ comment = "#>"
 options("mbquartR_example" = TRUE)
 ```
 
-```{r setup}
-library(mbquartR)
-```
 
 # Introduction
 
@@ -42,7 +39,7 @@ Since 1926, the [Manitoba Soil Survey](https://www.gov.mb.ca/agriculture/soil/so
 
 For many people, including myself, we are not familiar enough with land survey system to easily locate it. There are over 900,000 entries in the Manitoba Original Survey Legal Descriptions data covering more than 600,000 km<sup>2</sup>. Most mapping services are also unable to search for legal land description (e.g., Google Maps) which makes identifying where these soil sample were taken very difficult!
 
-For an explanation of quarter sections and other land types, please visit the [Get started](http://alexkoiter.ca/mbquartR/articles/mbquartR.html) page.
+For an explanation of quarter sections and other land types, please visit the [Get started](https://docs.ropensci.org/mbquartR/articles/mbquartR.html) page.
 
 ### Scenario:
 
@@ -56,9 +53,15 @@ soil_soc
 ```
 
 ### Download the data set
-Your first step is to download the Manitoba Original Survey Legal Descriptions data from [DataMB](https://geoportal.gov.mb.ca/) which `mbquartR` helps you do.
+Your first step is to load the package and then download the Manitoba Original Survey Legal Descriptions data from [DataMB](https://geoportal.gov.mb.ca/) which `mbquartR` helps you do.
 
 
+Load `mbquartR`
+```{r setup}
+library(mbquartR)
+```
+
+Download data set
 ```{r eval = FALSE}
 quarters_dl()
 ```

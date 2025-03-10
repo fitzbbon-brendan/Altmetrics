@@ -32,6 +32,7 @@ containing legal land descriptions.
 Map locations using a vector of legal land descriptions.
 }
 \examples{
+
 search1 <- search_legal(x = c("NE-11-33-29W1", "SW-20-2-1W1"))
 map_quarter(x = search1)
 

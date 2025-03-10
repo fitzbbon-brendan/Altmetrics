@@ -23,9 +23,9 @@ library(mbquartR)
 # mbquartR
 
 <!-- badges: start -->
-[![Codecov test coverage](https://codecov.io/gh/alex-koiter/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/alex-koiter/mbquartR?branch=main)
-[![R-CMD-check](https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/alex-koiter/mbquartR/actions/workflows/R-CMD-check.yaml)
-[![pkgcheck](https://github.com/alex-koiter/mbquartR/workflows/pkgcheck/badge.svg)](https://github.com/alex-koiter/mbquartR/actions?query=workflow%3Apkgcheck)
+[![Codecov test coverage](https://codecov.io/gh/ropensci/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/mbquartR?branch=main)
+[![R-CMD-check](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml)
+[![pkgcheck](https://github.com/ropensci/mbquartR/workflows/pkgcheck/badge.svg)](https://github.com/ropensci/mbquartR/actions?query=workflow%3Apkgcheck)
 <!-- badges: end -->
 
 The goal of `mbquartR` is to provide an easy way to download the Manitoba Original Survey Legal Descriptions data from [DataMB](https://geoportal.gov.mb.ca/) and then to locate quarter sections, and other types of land division types, in the province of Manitoba. You can search by legal land description (e.g., NE-11-33-29W1) or by lat/long coordinates (e.g., -101.4656, 51.81913). There is also a convenient map function that plots the centres and an outline of the quarter sections on a map.
@@ -37,8 +37,7 @@ The Manitoba Original Survey Legal Descriptions data set covers the entire provi
 You can install the development version of `mbquartR` like so:
 
 ```{r eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("alex-koiter/mbquartR")
+install.packages("mbquartR", repos = "https://ropensci.r-universe.dev")
 ```
 
 ## What is a quarter section?

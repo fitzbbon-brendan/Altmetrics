@@ -105,7 +105,7 @@ cache_dl <- function(quiet = FALSE) {
   if(!url_ok(url)) {
     url <- getOption("mbquartR_dl_url_backup")
     if(is.null(url)) {
-      url <- file.path("https://github.com/alex-koiter/mbquartR/releases/",
+      url <- file.path("https://github.com/ropensci/mbquartR/releases/",
                        "download/data-backup/mb_quarters.csv")
     }
     message("Data from geoportal.gov.mb.ca is not currently available, using",
