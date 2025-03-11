@@ -7,12 +7,12 @@ tags:
   - open data
 authors:
   - name: Alexander J. koiter
-    orcid: 0000-0003-0872-7098
+    orcid: "0000-0003-0872-7098"
     affiliation: 1
 affiliations:
- - name: Department of Geography and Environment, Brandon University
-   index: 1
-date: 11 March 2025
+  - name: Department of Geography and Environment, Brandon University
+    index: 1
+date: "11 March 2025"
 bibliography: paper.bib
 ---
 
