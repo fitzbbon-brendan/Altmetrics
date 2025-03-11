@@ -48,12 +48,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Alex Koiter \email{koitera@brandonu.ca} (\href{https://orcid.org/0000-0002-9355-9561}{ORCID})
+\strong{Maintainer}: Alex Koiter \email{koitera@brandonu.ca} (\href{https://orcid.org/0000-0002-9355-9561}{ORCID}) (Associate Professor, Department of Geography and Environment, Brandon University)
 
 Other contributors:
 \itemize{
-  \item Sheila Saia (Sheila reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/658) [reviewer]
-  \item Emily Markowitz (Sheila reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/658) [reviewer]
+  \item Emily H Markowitz (Research Fisheries Biologist, Alaska Fisheries Science Center, NOAA Fisheries | U.S. Department of Commerce. Emily reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/658) [reviewer]
 }
 
 }
