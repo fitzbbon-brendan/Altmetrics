@@ -69,7 +69,7 @@ install.packages("mbquartR", repos = "https://ropensci.r-universe.dev")
 
 <div class="figure">
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" alt="Location of the province of Manitoba and surrounding provinces and territories of Ontario (ON), Saskatchewan (SK), Nunavut (NU), and Northwest Territories (NT) within south-central Canada. Manitoban cities with a population greater than 10,000. Inset: Location of Manitoba within North America" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" alt="Main image shows the south-central Canadian province of Manitoba with points indicating the location of cities with a population greater than 10,000. Inset image shows an outline of North America, with the Canadian province of Manitoba highlighted in red." width="100%" />
 <p class="caption">
 Location of the province of Manitoba and surrounding provinces and
 territories of Ontario (ON), Saskatchewan (SK), Nunavut (NU), and
