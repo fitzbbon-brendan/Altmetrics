@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# mbquartR
+# mbquartR <img src="./inst/hex/mbquartR.png" align = "right" width = 110 />
 
 <!-- badges: start -->
 
@@ -9,6 +9,7 @@
 badge](https://ropensci.r-universe.dev/badges/:name)](https://ropensci.r-universe.dev)
 [![Codecov test
 coverage](https://codecov.io/gh/ropensci/mbquartR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/mbquartR?branch=main)
+
 [![R-CMD-check](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml)
 [![pkgcheck](https://github.com/ropensci/mbquartR/workflows/pkgcheck/badge.svg)](https://github.com/ropensci/mbquartR/actions?query=workflow%3Apkgcheck)
 
