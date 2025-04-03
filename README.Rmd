@@ -127,7 +127,7 @@ patchwork::wrap_plots(region, patchwork::inset_element(north_america, left = 0.7
 ```
 
 
-## This package is primarally maintained by:
+## This package is primarily maintained by:
 
 **Alex Koiter** (koitera\@brandonu.ca; [@alex-koiter](https://github.com/alex-koiter))
 
@@ -151,4 +151,8 @@ All suggestions are welcomed, big and small, on how to make this package more ro
 
 Please note that this project is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By participating in
 this package development you agree to abide by its terms.
+
+## About the logo
+
+The logo features the outline of Manitoba with a stylized depiction of a one-square-mile section of land, divided into four equal quarter sections. One quarter section is highlighted, with its centre marked by a point. In the southwest (lower-left) corner of the province, a small green square and the label "SE-22-10-19W1" indicate the quarter section where Brandon University is located.
 
