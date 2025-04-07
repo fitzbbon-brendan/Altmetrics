@@ -3,12 +3,20 @@ Title: Finding Manitoba Quarter Sections
 Version: 0.1.0
 Authors@R: c(
     person("Alex", "Koiter", , "koitera@brandonu.ca", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-9355-9561", "Associate Professor, Department of Geography and Environment, Brandon University")),
+           comment = c(ORCID = "0000-0002-9355-9561", "Associate Professor, 
+           Department of Geography and Environment, Brandon University
+           <https://alexkoiter.ca/>")),
     person("Emily H", "Markowitz", role = "rev",
-           comment = "Research Fisheries Biologist, Alaska Fisheries Science Center,
+           comment = "Research Fisheries Biologist, Alaska Fisheries Science Center
            NOAA Fisheries | U.S. Department of Commerce.
+           <https://emilyhmarkowitz.github.io/emilyhmarkowitz>
            Emily reviewed the package for rOpenSci, see 
-                  https://github.com/ropensci/software-review/issues/658")
+           <https://github.com/ropensci/software-review/issues/658>"),
+    person("Sheila M", "Saia", role = "rev",
+           comment = "Environmental Data Scientist, Tetra Tech.
+           <https://sheilasaia.rbind.io/>
+           Sheila reviewed the package for rOpenSci, see 
+           <https://github.com/ropensci/software-review/issues/658>")
            )
 Description: This package has four main functions: 1) download the Manitoba Original Survey Legal Descriptions data set; 2) find the coordinates of a quarter sections given the legal land description (e.g., "NE-11-33-29W"); 3) find the legal land description using coordinates (lat and long); and 4) plot these points on a map. 
 License: MIT + file LICENSE
