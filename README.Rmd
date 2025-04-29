@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/mbquartR/actions/workflows/R-CMD-check.yaml)
 
 [![pkgcheck](https://github.com/ropensci/mbquartR/workflows/pkgcheck/badge.svg)](https://github.com/ropensci/mbquartR/actions?query=workflow%3Apkgcheck)
-[![](https://badges.ropensci.org/160_status.svg)](https://github.com/ropensci/software-review/issues/658) 
+[![Status at rOpenSci Software Peer Review](https://badges.ropensci.org/658_status.svg)](https://github.com/ropensci/software-review/issues/658)
 <!-- badges: end -->
 
 The goal of `mbquartR` is to provide an easy way to download the Manitoba Original Survey Legal Descriptions data from [DataMB](https://geoportal.gov.mb.ca/) and then to locate quarter sections, and other land division types, in the province of Manitoba. You can search by legal land description (e.g., NE-11-33-29W1) or by lat/long coordinates (e.g., -101.4656, 51.81913). There is also a convenient map function that plots the centres and outlines (polygons) of the quarter sections on a map.
