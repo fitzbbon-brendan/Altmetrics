@@ -10,5 +10,5 @@ jobs:
         uses: IQSS/dataverse-uploader@v1.6
         with:
           DATAVERSE_TOKEN: ${{secrets.DATAVERSE_TOKEN}}
-          DATAVERSE_SERVER: https://demo.dataverse.org
-          DATAVERSE_DATASET_DOI: doi:10.80240/FK2/OPBIOX
+          DATAVERSE_SERVER: https://demo.borealisdata.ca
+          DATAVERSE_DATASET_DOI: doi:10.80240/FK2/RYNL9M
